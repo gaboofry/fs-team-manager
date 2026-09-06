@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Build artifacts
+*.zip
+fs-team-manager.zip
+
+# Development aids (never enter the repository)
+codebase_dump.txt
+setup.py
+dump_codebase.py
+test_backup.json
+standardbild_staff.png
+Review_WP_Reviewteam.*
+
+# Local environment
+.DS_Store
+Thumbs.db

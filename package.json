@@ -1,0 +1,22 @@
+{
+  "name": "fs-team-manager",
+  "version": "1.2.2",
+  "description": "Zentrale Verwaltung von Mannschaften, Zeiträumen, Spielplänen und Tabellen für Fussball.de Widgets.",
+  "author": "Fabriel Software <support-tmc@fabrielsoftware.de>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaboofry/fs-team-manager.git"
+  },
+  "homepage": "https://teammanager.fabrielsoftware.de/",
+  "bugs": {
+    "url": "https://github.com/gaboofry/fs-team-manager/issues"
+  },
+  "license": "GPL-2.0-or-later",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^27.0.0"
+  }
+}

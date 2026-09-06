@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "fstm/fussball-widget",
+  "version": "1.2.0",
+  "title": "Spielplan & Tabelle",
+  "category": "fs-tm-blocks",
+  "icon": "calendar-alt",
+  "description": "Zeigt Spielplan oder Tabelle einer Mannschaft über ein Widget von fussball.de an.",
+  "textdomain": "fs-team-manager",
+  "attributes": {
+    "team": { "type": "string", "default": "auto" },
+    "view": { "type": "string", "default": "matches" },
+    "period": { "type": "string", "default": "current" },
+    "showTeamName": { "type": "boolean", "default": true },
+    "colorScheme": { "type": "string", "default": "" },
+    "backgroundColor": { "type": "string", "default": "" },
+    "textColor": { "type": "string", "default": "" },
+    "bodyBackgroundColor": { "type": "string", "default": "" }
+  },
+  "editorScript": ["fs-tm-design-js", "file:./index.js"],
+  "style": "fs-tm-frontend-css",
+  "viewScript": "fs-tm-frontend-js"
+}

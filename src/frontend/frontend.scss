@@ -1,0 +1,492 @@
+/* ==========================================================================
+   Fabriel Software Team-Manager - Modern Frontend Styles
+
+   Farbregel: Es werden ausschließlich Flächenfarben gewählt
+   (--fs-tm-card-bg, --fs-tm-card-body-bg). Alle Schrift-, Linien- und
+   Plakettenfarben leitet Design\Scheme in PHP daraus ab und setzt sie als
+   Custom-Properties auf die Karte. Hier stehen deshalb keine festen
+   Textfarben mehr — nur noch die Variablen und ihre Rückfallwerte.
+   ========================================================================== */
+
+/* Rückfallebene, falls Design\StyleProvider seine :root-Werte nicht ausliefern
+   konnte. Bewusst auf :root, damit die serverseitig auf Karte oder Raster
+   gesetzten Variablen durch Vererbung greifen und nicht überschrieben werden. */
+:root {
+    --fs-tm-page-bg: #ffffff;
+    --fs-tm-ink: #0f172a;
+    --fs-tm-text: #334155;
+    --fs-tm-muted: #64748b;
+    --fs-tm-faint: #94a3b8;
+    --fs-tm-line: #e2e8f0;
+    --fs-tm-line-strong: #cbd5e1;
+    --fs-tm-card-bg: var(--fs-tm-brand-deep, #314e82);
+    --fs-tm-card-head-bg: var(--fs-tm-card-bg);
+    --fs-tm-card-ink: var(--fs-tm-on-brand, #ffffff);
+    --fs-tm-card-ink-soft: var(--fs-tm-card-ink);
+    --fs-tm-card-line: rgba(0, 0, 0, 0.1);
+    --fs-tm-card-chip-bg: rgba(255, 255, 255, 0.9);
+    --fs-tm-card-chip-ink: #0f172a;
+    --fs-tm-card-body-bg: var(--fs-tm-surface, #ffffff);
+    --fs-tm-body-ink: #0f172a;
+    --fs-tm-body-ink-soft: #334155;
+    --fs-tm-body-ink-faint: #64748b;
+    --fs-tm-body-line: #e2e8f0;
+    --fs-tm-body-line-strong: #cbd5e1;
+    --fs-tm-body-sunken: #f1f5f9;
+    --fs-tm-body-raised: #e2e8f0;
+}
+
+.fussballde_widget,
+.fs-tm-widget-frame {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    overflow: visible !important;
+
+    iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+}
+
+.fs-tm-widget-slot {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   Ladeanzeige
+   Marke aus dem Verwaltungsbereich als kleine, rein lokale Animation.
+   Kein Bild, keine zusätzliche Anfrage: ein Ring aus einem CSS-Verlauf und
+   das Markenzeichen als Inline-SVG.
+   -------------------------------------------------------------------------- */
+
+.fs-tm-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 32px 16px;
+    color: var(--fs-tm-body-ink, inherit);
+
+    .fs-tm-loader-orb {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+    }
+
+    .fs-tm-loader-ring {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, transparent 0deg, currentColor 300deg, transparent 360deg);
+        opacity: 0.55;
+        mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+        -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+        animation: fs-tm-loader-spin 1.1s linear infinite;
+    }
+
+    .fs-tm-loader-mark {
+        display: inline-flex;
+        width: 22px;
+        height: 22px;
+        animation: fs-tm-loader-pulse 1.8s ease-in-out infinite;
+
+        svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    .fs-tm-loader-text {
+        font-size: 12.5px;
+        letter-spacing: 0.01em;
+        opacity: 0.75;
+    }
+}
+
+@keyframes fs-tm-loader-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fs-tm-loader-pulse {
+    0%, 100% { opacity: 0.55; transform: scale(0.94); }
+    50%      { opacity: 1;    transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fs-tm-loader .fs-tm-loader-ring,
+    .fs-tm-loader .fs-tm-loader-mark,
+    .fs-tm-consent-btn-spinner {
+        animation-duration: 0.001s;
+        animation-iteration-count: 1;
+    }
+
+    .fs-tm-loader .fs-tm-loader-ring {
+        opacity: 0.35;
+    }
+}
+
+.fs-tm-consent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    padding: 28px 20px;
+    border: 1px dashed var(--fs-tm-body-line-strong);
+    border-radius: 10px;
+    background: var(--fs-tm-body-sunken);
+    color: var(--fs-tm-body-ink);
+
+    .fs-tm-consent-icon {
+        font-size: 22px;
+        line-height: 1;
+    }
+
+    .fs-tm-consent-text {
+        margin: 0;
+        max-width: 44ch;
+        font-size: 13.5px;
+        line-height: 1.5;
+    }
+
+    .fs-tm-consent-btn {
+        cursor: pointer;
+        border: none;
+        border-radius: 9999px;
+        padding: 9px 20px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--fs-tm-card-ink);
+        background: var(--fs-tm-card-head-bg);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+
+        &:hover,
+        &:focus-visible {
+            opacity: 0.9;
+        }
+
+        &.is-loading {
+            cursor: progress;
+            opacity: 0.85;
+        }
+    }
+
+    .fs-tm-consent-btn-spinner {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        border: 2px solid currentColor;
+        border-top-color: transparent;
+        animation: fs-tm-loader-spin 0.8s linear infinite;
+        flex-shrink: 0;
+    }
+
+    .fs-tm-consent-remember {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--fs-tm-body-ink-soft);
+    }
+
+    .fs-tm-consent-link {
+        font-size: 12px;
+        color: var(--fs-tm-body-ink-soft);
+    }
+}
+
+.fs-tm-card-note {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding: 3px 9px;
+    border-radius: 9999px;
+    background: var(--fs-tm-card-line);
+    border: 1px solid var(--fs-tm-card-line);
+    color: var(--fs-tm-card-ink-soft);
+    cursor: help;
+    flex-shrink: 0;
+}
+
+.fs-tm-tables-grid {
+    display: grid;
+    gap: 24px;
+    width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    grid-template-columns: repeat(var(--fs-tm-cols, 2), minmax(0, 1fr));
+
+    &.fs-tm-cols-1 { --fs-tm-cols: 1; grid-template-columns: 1fr; }
+    &.fs-tm-cols-2 { --fs-tm-cols: 2; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    &.fs-tm-cols-3 { --fs-tm-cols: 3; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    @media (max-width: 992px) {
+        &.fs-tm-cols-3 { --fs-tm-cols: 2; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 768px) {
+        &.fs-tm-cols-2,
+        &.fs-tm-cols-3 { --fs-tm-cols: 1; grid-template-columns: 1fr; }
+    }
+}
+
+.fs-tm-table-card {
+    background-color: var(--fs-tm-card-bg);
+    color: var(--fs-tm-card-ink);
+    border: 1px solid var(--fs-tm-card-line);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+    box-sizing: border-box;
+}
+
+/* Dezent kleiner Attributions-Hinweis als letztes Kind jeder Widget-Karte
+   (direkt unterhalb des .fs-tm-card-body, innerhalb der Karte). */
+.fs-tm-card-attribution {
+    margin: 0;
+    padding: 8px 12px 10px;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 1.4;
+    color: var(--fs-tm-card-ink-soft);
+
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover,
+        &:focus-visible {
+            text-decoration: underline;
+        }
+    }
+
+    .fs-tm-consent-reset-link {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible {
+            text-decoration: underline;
+        }
+    }
+}
+
+.fs-tm-card-header {
+    background-color: var(--fs-tm-card-head-bg);
+    color: var(--fs-tm-card-ink);
+    border-bottom: 1px solid var(--fs-tm-card-line);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 14px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.fs-tm-card-header-left { 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    gap: 10px; 
+    width: 100%;
+}
+
+.fs-tm-card-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.fs-tm-card-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.fs-tm-card-title {
+    margin: 0 !important;
+    font-size: 1.15rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em;
+    color: inherit !important;
+    text-align: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+
+    .fs-tm-card-link {
+        color: inherit !important;
+        text-decoration: none !important;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.2s ease, opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.9 !important;
+            border-color: currentColor;
+        }
+    }
+}
+
+.fs-tm-card-title-line {
+    display: block;
+    text-align: center;
+}
+
+.fs-tm-period-select-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+
+    /* Pfeil als Maske statt als eingefärbtes SVG: So folgt er der berechneten
+       Schriftfarbe der Plakettenfläche und bleibt auf hellen wie dunklen
+       Kartenköpfen sichtbar. */
+    &::after {
+        content: "";
+        position: absolute;
+        right: 10px;
+        width: 14px;
+        height: 14px;
+        pointer-events: none;
+        background-color: var(--fs-tm-card-chip-ink);
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat center / contain;
+        -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill-rule='evenodd' d='M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat center / contain;
+    }
+}
+
+.fs-tm-period-select {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    padding: 5px 28px 5px 12px !important;
+    border-radius: 20px !important;
+    border: 1px solid var(--fs-tm-card-chip-bg) !important;
+    background: var(--fs-tm-card-chip-bg) !important;
+    color: var(--fs-tm-card-chip-ink) !important;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 0 2px var(--fs-tm-card-line);
+    }
+}
+
+.fs-tm-card-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: var(--fs-tm-card-chip-bg);
+    color: var(--fs-tm-card-chip-ink);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* Mobile: Select zentriert + Breite ≤ Header-Content-Breite (kein Überstehen),
+   Badge wandert unter die .fs-tm-period-select-wrap. Desktop bleibt unverändert.
+   .fs-tm-period-select-wrap füllt die Header-Content-Breite und zentriert das
+   Select; das Select füllt die Wrap (box-sizing: border-box → Padding/Border
+   nicht addiert), daher ist seine Gesamtbreite inkl. Padding immer ≤ der
+   Header-Content-Breite und es ragt nie über den Header-Rand hinaus. */
+@media (max-width: 768px) {
+    .fs-tm-card-header {
+        flex-wrap: wrap;
+    }
+
+    .fs-tm-card-header-right {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .fs-tm-period-select-wrap {
+        width: 100%;
+        justify-content: center;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .fs-tm-period-select {
+        padding: 5px 36px 5px 12px !important;
+    }
+
+    .fs-tm-card-badge {
+        max-width: 100%;
+    }
+}
+
+.fs-tm-card-body {
+    padding: 16px;
+    background-color: var(--fs-tm-card-body-bg);
+    color: var(--fs-tm-body-ink);
+    min-height: 120px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible !important;
+}
+
+.fs-tm-period-pane {
+    display: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+
+    .fussballde_widget,
+    .fs-tm-widget-slot {
+        margin: 0 auto;
+    }
+
+    iframe {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &.is-active {
+        display: block !important;
+        animation: fsTmFadeIn 0.2s ease-out forwards;
+    }
+}
+
+.fs-tm-no-data {
+    text-align: center;
+    color: var(--fs-tm-body-ink-faint);
+    padding: 30px 10px;
+    margin: 0;
+    font-size: 13.5px;
+}
+
+@keyframes fsTmFadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}

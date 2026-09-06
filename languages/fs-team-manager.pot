@@ -1,0 +1,1498 @@
+# Copyright (C) 2026 Fabriel Software
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Fabriel Software Team-Manager 1.2.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fs-team-manager\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-09-02T17:56:27+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: fs-team-manager\n"
+
+#. Plugin Name of the plugin
+#: fs-team-manager.php
+msgid "Fabriel Software Team-Manager"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: fs-team-manager.php
+msgid "https://teammanager.fabrielsoftware.de/"
+msgstr ""
+
+#. Description of the plugin
+#: fs-team-manager.php
+msgid "Zentrale Verwaltung von Mannschaften, Zeiträumen, Spielplänen und Tabellen für Widgets von fussball.de."
+msgstr ""
+
+#. Author of the plugin
+#: fs-team-manager.php
+msgid "Fabriel Software"
+msgstr ""
+
+#. Author URI of the plugin
+#: fs-team-manager.php
+msgid "https://fabrielsoftware.de/"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:28
+#: includes/Admin/AdminPage.php:29
+#: includes/Admin/Layout.php:27
+#: build/blocks/fussball-widget/index.js:14
+msgid "Einstellungen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:61
+#: includes/Admin/AdminPage.php:71
+#: includes/Admin/ExportImport.php:14
+#: includes/Admin/ExportImport.php:40
+#: includes/Admin/ExportImport.php:246
+#: includes/Admin/SettingsPage.php:35
+msgid "Keine Berechtigung."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:76
+msgid "Mannschaft nicht gefunden."
+msgstr ""
+
+#. translators: 1: start year, 2: end year
+#: includes/Admin/AdminPage.php:119
+#: includes/Data/TeamRepository.php:102
+#, php-format
+msgid "Zeitraum %1$d/%2$d"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:184
+#: includes/Admin/AdminPage.php:373
+#: includes/Admin/AdminPage.php:411
+#: includes/Admin/AdminPage.php:452
+#: includes/Admin/HelpSection.php:282
+#: includes/Admin/Layout.php:107
+#: build/admin.js:21
+msgid "Klicken zum Auf-/Zuklappen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:187
+#: includes/Admin/HelpSection.php:19
+msgid "Neue Mannschaft anlegen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:189
+#: includes/Admin/HelpSection.php:287
+#: includes/Admin/Layout.php:104
+msgid "Klicken zum Öffnen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:197
+#: includes/Admin/HelpSection.php:23
+msgid "Mannschaftsname"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:198
+msgid "Vollständiger Name des Teams, z. B. 1. Mannschaft oder B-Jugend."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:200
+msgid "z. B. 1. Mannschaft"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:204
+#: includes/Admin/HelpSection.php:31
+msgid "Kürzel (Slug)"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:205
+msgid "Eindeutige technische Kennung (z. B. 1-mannschaft). Bleibt es leer, wird es automatisch erzeugt."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:207
+msgid "z. B. 1-mannschaft"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:211
+msgid "Zugeordnete Seite"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:212
+#: includes/Admin/AdminPage.php:391
+msgid "Auf dieser Unterseite erkennt der Gutenberg-Block das Team automatisch. Stellen Sie dazu im Block Backend „Automatisch (anhand Seite)“ ein."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:227
+msgid "Mannschaft anlegen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:238
+msgid "Mannschaften durchsuchen..."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:247
+msgid "Noch keine Mannschaften angelegt. Nutze das Formular oben, um das erste Team anzulegen!"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:255
+msgid "Klicken zum Öffnen/Schließen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:257
+msgid "Ziehen zum Sortieren"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:263
+msgid "Mannschaft löschen"
+msgstr ""
+
+#. translators: %s: team name
+#: includes/Admin/AdminPage.php:263
+#, php-format
+msgid "Mannschaft „%s\" wirklich löschen?"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:283
+msgid "Widget-Inspector"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:286
+msgid "Desktop (100%)"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:287
+msgid "Tablet (640px)"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:288
+msgid "Smartphone (360px)"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:290
+msgid "Schließen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:293
+msgid "Typ:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:294
+msgid "UUID:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:360
+msgid "Die letzte Speicherung wurde abgebrochen:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:376
+#: includes/Admin/HelpSection.php:42
+msgid "Stammdaten & Zuordnung"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:383
+msgid "Mannschaftsname:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:384
+msgid "Offizieller Name der Mannschaft auf der Vereinswebsite."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:390
+msgid "Zugeordnete WordPress-Seite:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:415
+msgid "Spielpläne & Tabellen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:416
+msgid "Klicke auf einen Zeitraum-Balken, um Details auf- oder zuzuklappen. Vergangene Zeiträume sind standardmäßig eingeklappt."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:419
+#: includes/Admin/AdminPage.php:421
+msgid "Neuen Zeitraum hinzufügen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:429
+msgid "Noch kein Zeitraum hinterlegt. Klicke auf <strong>„+ Neuen Zeitraum hinzufügen“</strong>, um Spielplan- und Tabellen-IDs einzutragen."
+msgstr ""
+
+#. translators: %d: sequential number of the period
+#: includes/Admin/AdminPage.php:444
+#: includes/Data/TeamRepository.php:383
+#, php-format
+msgid "Zeitraum %d"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:458
+msgid "Aktiver Zeitraum"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:460
+msgid "Vergangen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:462
+msgid "Zukünftig"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:464
+#: build/admin.js:21
+msgid "Zeitraum löschen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:473
+#: build/admin.js:21
+msgid "Bezeichnung des Zeitraums:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:474
+msgid "Wird im Frontend-Dropdown und im Header angezeigt (z. B. Saison 2026/2027 oder Hinrunde)."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:476
+#: build/admin.js:21
+msgid "z. B. Saison 2026/2027 oder Hinrunde"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:482
+#: build/admin.js:21
+msgid "Gültig ab (Start):"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:483
+msgid "Datum, ab dem die Website automatisch auf diesen Zeitraum umschaltet."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:492
+#: build/admin.js:21
+msgid "Gültig bis (optional):"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:493
+msgid "Enddatum. Muss nahtlos an den nächsten Zeitraum anschließen."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:505
+#: build/admin.js:19
+msgid "Spielplan-ID des Vereins:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:505
+#: build/admin.js:19
+#: build/admin.js:21
+msgid "Spielplan-ID der Mannschaft:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:506
+msgid "UUID aus dem Einbettungscode von fussball.de (data-type „team-matches“)."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:510
+#: includes/Admin/AdminPage.php:524
+#: build/admin.js:21
+msgid "Widget live testen / Vorschau"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:519
+#: build/admin.js:21
+msgid "Tabellen-ID:"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:520
+msgid "UUID aus dem Einbettungscode von fussball.de (data-type „table“)."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:534
+#: includes/Admin/HelpSection.php:101
+#: build/admin.js:21
+msgid "Club-Matches"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:535
+msgid "Schaltet den Widget-Typ von „team-matches“ auf „club-matches“ um."
+msgstr ""
+
+#: includes/Admin/AdminPage.php:550
+msgid "Änderungen speichern"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:551
+msgid "🔄 Änderungen verwerfen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:552
+msgid "✖ Zuklappen"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:559
+msgid "Keine automatische Zuordnung"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:561
+msgid "Seiten mit Team/Fussball Block"
+msgstr ""
+
+#: includes/Admin/AdminPage.php:568
+msgid "Weitere Seiten"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:20
+msgid "Diese drei Felder erscheinen nur beim erstmaligen Anlegen. Danach werden sie im Bereich „Stammdaten & Zuordnung“ der jeweiligen Mannschaft gepflegt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:24
+msgid "Den Namen, unter dem die Mannschaft auf der Website erscheinen soll, zum Beispiel „1. Mannschaft“ oder „B-Jugend (U17)“. Pflichtfeld."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:25
+msgid "Dient als Überschrift der Karte, als Eintrag in der Auswahlliste des Blocks und als Titel in der Mannschaftsliste im Backend."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:26
+msgid "Kann jederzeit geändert werden, ohne dass bestehende Blöcke ihre Zuordnung verlieren. Die Zuordnung erfolgt über das Kürzel, nicht über den Namen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:27
+msgid "In der Auswahlliste „Mannschaft auswählen“ des Blocks „Spielplan & Tabelle“."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:28
+msgid "Fett gesetzt in der Kopfzeile der Karte."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:32
+msgid "Eine eindeutige technische Kennung aus Kleinbuchstaben, Ziffern und Bindestrichen, zum Beispiel „senioren-1“. Bleibt das Feld leer, wird das Kürzel automatisch aus dem Namen erzeugt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:33
+msgid "Verbindet die Mannschaft mit den eingefügten Blöcken und dient als Schlüssel in Sicherungsdateien."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:34
+msgid "Nach dem Anlegen nicht mehr änderbar, da bereits eingefügte Blöcke sonst ihre Zuordnung verlieren würden. Ein bereits vergebenes Kürzel wird abgelehnt. Beim Import gilt: gleiches Kürzel aktualisiert die vorhandene Mannschaft, ein neues legt eine zusätzliche an."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:35
+msgid "Nicht sichtbar, wird intern verwendet."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:36
+#: includes/Admin/HelpSection.php:105
+msgid "Nicht sichtbar."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:43
+msgid "Grundangaben einer bereits angelegten Mannschaft."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:46
+msgid "Zugeordnete WordPress-Seite"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:47
+msgid "Die Unterseite, auf der diese Mannschaft dargestellt wird. Alternativ „Keine automatische Zuordnung“, wenn die Mannschaft keine eigene Seite hat."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:48
+msgid "Hat zwei getrennte Wirkungen: Der Block erkennt die Mannschaft auf dieser Seite automatisch, und die Kartenüberschrift wird zu einem Link auf diese Seite."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:49
+msgid "Der Link erscheint nur, wenn die Seite veröffentlicht ist; bei Entwürfen bleibt die Überschrift unverlinkt. Jede Seite sollte nur einer Mannschaft zugeordnet sein – bei Doppelbelegung gewinnt die in der Liste weiter oben stehende Mannschaft. Die Auswahlliste ist in „Seiten mit Team/Fussball Block“ und „Weitere Seiten“ gruppiert und wird bis zu zwölf Stunden zwischengespeichert; neu angelegte Seiten erscheinen daher unter Umständen verzögert."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:50
+msgid "Wirkt, sobald im Block „Automatisch (anhand Seite)“ eingestellt ist."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:51
+msgid "Die Kartenüberschrift wird zum Link auf diese Seite."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:57
+#: build/admin.js:19
+#: build/blocks/fussball-widget/index.js:14
+msgid "Zeitraum"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:58
+msgid "Ein Zeitraum bündelt die Widget-IDs, die in einer bestimmten Spanne gelten – üblicherweise eine Saison. Mehrere Zeiträume ergeben die automatische Umschaltung und das Saison-Archiv im Frontend."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:61
+msgid "Bezeichnung des Zeitraums"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:62
+msgid "Einen sprechenden Namen wie „Saison 2026/2027“ oder „Hinrunde“. Pflichtfeld."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:63
+msgid "Wird als Auswahltext angezeigt, überall dort, wo ein Zeitraum gewählt werden kann."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:64
+msgid "Tragen zwei aufeinanderfolgende Zeiträume dieselbe Widget-ID, fasst die Website sie zu einem einzigen Eintrag zusammen und verbindet beide Bezeichnungen mit „&“."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:65
+msgid "In der Auswahlliste „Start-Zeitraum“, ergänzt um die Datumsspanne."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:66
+msgid "Im Auswahlfeld rechts oben auf der Karte. Der heute gültige Zeitraum heißt dort „Aktuell“, sofern der Block auf „Immer aktuell“ steht."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:69
+msgid "Gültig ab (Start)"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:70
+msgid "Das Datum, ab dem dieser Zeitraum gelten soll. Pflichtfeld. Das Datum darf in der Zukunft liegen – genau das erlaubt es, den Saisonwechsel vorzubereiten."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:71
+msgid "Steuert die automatische Umschaltung. Ab diesem Tag zeigt die Website die hier hinterlegten IDs."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:72
+msgid "Zeiträume werden nach diesem Datum sortiert, der neueste steht oben. Das Startdatum muss nach dem Enddatum des vorherigen Zeitraums liegen, sonst meldet das Plugin eine Überlappung und verweigert das Speichern."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:73
+#: includes/Admin/HelpSection.php:81
+msgid "Erscheint in Klammern hinter der Bezeichnung."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:74
+#: includes/Admin/HelpSection.php:82
+msgid "Erscheint als Datumsspanne in Klammern hinter der Bezeichnung im Auswahlfeld."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:77
+msgid "Gültig bis (optional)"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:78
+msgid "Das Enddatum. Bleibt es leer, gilt der Zeitraum unbegrenzt weiter – sinnvoll für den jeweils aktuellen Zeitraum."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:79
+msgid "Beendet die Gültigkeit. Nach diesem Tag wechselt die Website auf den nächsten passenden Zeitraum."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:80
+msgid "Existiert ein späterer Zeitraum, ist das Enddatum Pflicht. Fällt der heutige Tag in eine Lücke zwischen zwei Zeiträumen, zeigt die Website den zuletzt gültigen Zeitraum und kennzeichnet ihn mit dem Hinweis „Letzter Zeitraum“ – es bleibt also nie leer."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:85
+msgid "Spielplan-ID"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:86
+msgid "Die ID aus dem Einbettungscode von fussball.de – der Wert des Attributs „data-id“ beim Widget-Typ „team-matches“. Sie besteht aus 36 Zeichen mit Bindestrichen. Leer lassen, wenn für diesen Zeitraum kein Spielplan angezeigt werden soll."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:87
+msgid "Liefert die Daten für die Blockansicht „Spielplan“."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:88
+msgid "Das Format wird beim Speichern geprüft; eine fehlerhafte Eingabe wird rot markiert und blockiert das Speichern. Ist das Feld leer, erscheint dieser Zeitraum in der Ansicht „Spielplan“ gar nicht erst zur Auswahl. Die Schaltfläche „Testen“ öffnet das Widget in der Vorschau, ohne es zu speichern."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:89
+msgid "Bestimmt, welche Zeiträume unter „Start-Zeitraum“ auswählbar sind, wenn die Ansicht auf „Spielplan“ steht."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:90
+msgid "Der eingebettete Spielplan im Inhaltsbereich der Karte."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:93
+msgid "Tabellen-ID"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:94
+msgid "Die ID aus dem Einbettungscode von fussball.de für den Widget-Typ „table“. Leer lassen, wenn für diesen Zeitraum keine Tabelle angezeigt werden soll."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:95
+msgid "Liefert die Daten für die Blockansicht „Tabelle“ und für den Block „Tabellen-Übersicht (Grid)“."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:96
+msgid "In der Tabellen-Übersicht wird ausschließlich der heute gültige Zeitraum verwendet. Mehrere Mannschaften mit derselben Tabellen-ID – also aus derselben Liga – werden dort automatisch zu einer gemeinsamen Karte zusammengefasst."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:97
+msgid "Bestimmt, welche Zeiträume unter „Start-Zeitraum“ auswählbar sind, wenn die Ansicht auf „Tabelle“ steht."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:98
+msgid "Die eingebettete Ligatabelle im Inhaltsbereich der Karte."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:102
+msgid "Häkchen setzen, wenn die hinterlegte Spielplan-ID nicht den Spielplan einer einzelnen Mannschaft, sondern den aller Mannschaften des Vereins enthält."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:103
+msgid "Schaltet den angeforderten Widget-Typ von „team-matches“ auf „club-matches“ um."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:104
+msgid "Betrifft ausschließlich die Spielplan-ID, nie die Tabellen-ID. Die Beschriftung des Spielplan-Feldes wechselt beim Setzen des Häkchens entsprechend."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:106
+msgid "Statt des Mannschaftsspielplans erscheint der Spielplan des gesamten Vereins."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:112
+msgid "Reihenfolge, Suche und Vorschau"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:113
+msgid "Bedienelemente der Mannschaftsliste."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:116
+msgid "Sortiergriff (Drag & Drop)"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:117
+msgid "Die Mannschaft am Griff links im Kopfbereich anfassen und an die gewünschte Position ziehen. Die neue Reihenfolge wird sofort gespeichert."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:118
+msgid "Legt die Reihenfolge im Backend und im Block „Tabellen-Übersicht (Grid)“ fest."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:119
+msgid "Entscheidet zusätzlich, welche Mannschaft gewinnt, wenn versehentlich zwei Mannschaften derselben Seite zugeordnet wurden."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:120
+msgid "Reihenfolge der Karten in der Tabellen-Übersicht."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:123
+msgid "Suchfeld"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:124
+msgid "Einen Teil des Mannschaftsnamens oder des Kürzels eingeben."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:125
+msgid "Blendet nicht passende Mannschaften vorübergehend aus. Es werden keine Daten verändert."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:128
+msgid "Schaltfläche „Testen“"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:129
+msgid "Erst eine ID in das zugehörige Feld eintragen, dann auf „Testen“ klicken."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:130
+msgid "Öffnet das Widget in einer Vorschau mit umschaltbarer Desktop-, Tablet- und Handybreite."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:131
+msgid "Die Vorschau greift auf den aktuell im Feld stehenden Wert zu, nicht auf den gespeicherten. Sie lädt Inhalte direkt von fussball.de."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:137
+msgid "Datensicherung"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:138
+msgid "Sicherung und Wiederherstellung aller Mannschaften, Zeiträume und Zuordnungen als JSON-Datei."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:141
+msgid "Backup herunterladen"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:142
+msgid "Keine Eingabe nötig. Ein Klick erzeugt die Datei."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:143
+msgid "Lädt alle Mannschaften mit Zeiträumen und Seitenzuordnungen als JSON-Datei herunter."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:144
+msgid "Empfehlenswert vor jedem Import und vor größeren Umbauten."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:147
+msgid "Import-Modus „Ergänzen“"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:148
+msgid "Voreinstellung. Auswählen, wenn Mannschaften hinzugefügt oder aktualisiert werden sollen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:149
+msgid "Mannschaften aus der Datei werden angelegt oder überschrieben. Alle übrigen bleiben unverändert erhalten."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:150
+msgid "Maßgeblich ist das Kürzel. Ein bereits vorhandenes Kürzel wird vollständig durch den Inhalt der Datei ersetzt, einschließlich aller Zeiträume."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:153
+msgid "Import-Modus „Ersetzen“"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:154
+msgid "Nur auswählen, wenn der aktuelle Bestand vollständig durch die Datei ersetzt werden soll."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:155
+msgid "Mannschaften, die nicht in der Datei stehen, werden gelöscht."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:156
+msgid "Der vorherige Stand wird automatisch gesichert und lässt sich direkt nach dem Import über den Link in der Erfolgsmeldung einmalig wiederherstellen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:159
+msgid "JSON-Datei"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:160
+msgid "Eine zuvor mit diesem Plugin erzeugte Sicherungsdatei auswählen. Zulässig sind Dateien mit der Endung .json bis 2 MB."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:161
+msgid "Quelle für den Import."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:162
+msgid "Enthaltene IDs werden beim Import genauso geprüft wie bei der Eingabe von Hand."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:168
+#: includes/Admin/SettingsPage.php:69
+#: includes/Admin/SettingsPage.php:73
+msgid "Datenschutz & externe Inhalte"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:169
+msgid "Spielpläne und Tabellen werden von fussball.de geladen. Dabei wird die IP-Adresse der Besucher an den Anbieter übertragen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:172
+#: includes/Admin/SettingsPage.php:85
+msgid "Zwei-Klick-Lösung aktivieren"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:173
+msgid "Häkchen setzen, wenn externe Inhalte erst nach ausdrücklicher Bestätigung durch den Besucher geladen werden sollen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:174
+msgid "Anstelle des Widgets erscheint zunächst ein Hinweisfeld mit der Auswahl „Auswahl für diesen Browser merken“ und der Schaltfläche „Inhalt laden“. Erst danach wird eine Verbindung zu fussball.de aufgebaut."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:175
+msgid "Setzt der Besucher zusätzlich das Häkchen „Auswahl merken“, gilt die Zustimmung in seinem Browser auch für künftige Seitenaufrufe. Ohne dieses Häkchen gilt sie nur für den aktuellen Aufruf. Weil die Entscheidung im Browser fällt, wirkt sie auch hinter einem Seiten-Cache."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:176
+msgid "Hinweisfeld mit Schaltfläche anstelle des Widgets."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:179
+msgid "Anbindung an ein Consent-Management (z. B. Complianz)"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:180
+msgid "Keine Einstellung, sondern eine Zeile Code in der functions.php des Child-Themes oder in einem kleinen Mu-Plugin."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:181
+msgid "Der Filter „fs_tm_load_remote_widgets“ wird vor jeder Widget-Ausgabe geprüft. Gibt er false zurück, entsteht weder ein Widget-Container noch die Zwei-Klick-Box, und das Skript des Anbieters wird nicht eingebunden – es geht keine Anfrage an fussball.de."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:182
+msgid "Beispiel für Complianz: add_filter( 'fs_tm_load_remote_widgets', function ( $enabled ) { return function_exists( 'cmplz_has_consent' ) ? (bool) cmplz_has_consent( 'marketing' ) : $enabled; } ); – Der Filter wird beim Seitenaufbau ausgewertet; hinter einem Seiten-Cache ist die Zwei-Klick-Lösung die verlässlichere Wahl. Blockiert ein Consent-Plugin stattdessen das Skript des Anbieters, lädt das Plugin auch beim Umschalten eines Zeitraums nichts nach."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:183
+msgid "Ohne Einwilligung bleibt die Stelle des Widgets leer bzw. zeigt den Hinweis, dass externe Inhalte deaktiviert sind."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:189
+msgid "Block „Spielplan & Tabelle“"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:190
+msgid "Einstellungen in der rechten Seitenleiste des Blockeditors, sichtbar bei ausgewähltem Block."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:193
+msgid "Mannschaft auswählen"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:194
+msgid "Entweder „Automatisch (anhand Seite)“ oder eine feste Mannschaft. Die automatische Erkennung ist die empfohlene Einstellung für Mannschaftsseiten."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:195
+msgid "Legt fest, wessen Daten der Block anzeigt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:196
+msgid "Die automatische Erkennung funktioniert nur, wenn der Seite in den Stammdaten einer Mannschaft zugeordnet wurde. Fehlt die Zuordnung, bleibt der Block im Frontend leer. Beim Wechsel der Mannschaft wird der Start-Zeitraum auf „Immer aktuell“ zurückgesetzt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:197
+msgid "Der ausgewählte Name erscheint in der Blockvorschau."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:198
+msgid "Bestimmt Überschrift und Inhalt der Karte."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:201
+msgid "Ansicht"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:202
+msgid "„Spielplan“ oder „Tabelle“."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:203
+msgid "Legt fest, welche der beiden hinterlegten IDs verwendet wird."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:204
+msgid "Bestimmt zugleich, welche Zeiträume unter „Start-Zeitraum“ zur Auswahl stehen – nämlich nur solche mit einer passenden ID. Beim Wechsel wird der Start-Zeitraum zurückgesetzt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:205
+msgid "Wird unter der Mannschaft in der Blockvorschau angezeigt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:206
+msgid "Symbol und Kennzeichnung rechts oben auf der Karte sowie der eingebettete Inhalt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:209
+msgid "Start-Zeitraum"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:210
+msgid "„Immer aktuell (Datum)“ ist die empfohlene Einstellung. Ein fester Zeitraum ist nur für Sonderfälle sinnvoll, etwa eine Rückblickseite."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:211
+msgid "Legt fest, welcher Zeitraum beim Aufruf der Seite vorausgewählt ist."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:212
+msgid "Bei „Immer aktuell“ wählt die Website den Zeitraum anhand des heutigen Datums – der Block braucht beim Saisonwechsel nicht angefasst zu werden. Wird ein fester Zeitraum gewählt, entfällt diese Automatik für diesen Block dauerhaft."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:213
+msgid "Auswahlliste mit Bezeichnung und Datumsspanne."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:214
+msgid "Bestimmt lediglich die Vorauswahl. Besucher können über das Auswahlfeld auf der Karte jederzeit einen anderen Zeitraum ansehen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:217
+#: build/blocks/fussball-widget/index.js:14
+#: build/blocks/tables-overview/index.js:14
+msgid "Header Hintergrundfarbe"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:218
+msgid "Eine Farbe aus der Palette des Themes oder ein eigener Wert. Voreingestellt ist ein dunkles Blau."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:219
+msgid "Grundfarbe der gesamten Karte."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:220
+msgid "Über die Kopfzeile liegt eine leichte Abdunklung, damit sie sich vom Inhaltsbereich absetzt. Die Kopfzeile erscheint deshalb etwas dunkler als der gewählte Farbwert."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:221
+#: includes/Admin/HelpSection.php:229
+#: includes/Admin/HelpSection.php:237
+msgid "Die Blockvorschau übernimmt die Farbe unmittelbar."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:222
+msgid "Kopfzeile und Rahmen der Karte."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:225
+#: build/blocks/fussball-widget/index.js:14
+#: build/blocks/tables-overview/index.js:14
+msgid "Header Textfarbe"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:226
+msgid "Eine Farbe mit ausreichendem Kontrast zur Hintergrundfarbe. Voreingestellt ist Weiß."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:227
+msgid "Farbe von Überschrift, Symbol und Auswahlfeld in der Kopfzeile."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:228
+msgid "Gilt auch für den Link auf die Mannschaftsseite, sofern eine zugeordnet ist."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:230
+msgid "Sämtliche Beschriftungen in der Kopfzeile."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:233
+#: build/blocks/fussball-widget/index.js:14
+#: build/blocks/tables-overview/index.js:14
+msgid "Inhalt Hintergrundfarbe (Body)"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:234
+msgid "Die Hintergrundfarbe hinter dem eingebetteten Widget. Voreingestellt ist Weiß."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:235
+msgid "Färbt den Inhaltsbereich der Karte."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:236
+msgid "Das Widget selbst wird von fussball.de geliefert und behält sein eigenes Erscheinungsbild. Ein sehr dunkler Wert kann die Lesbarkeit an den Rändern beeinträchtigen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:238
+msgid "Fläche rund um den eingebetteten Spielplan oder die Tabelle."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:244
+msgid "Block „Tabellen-Übersicht (Grid)“"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:245
+msgid "Zeigt automatisch die aktuellen Ligatabellen aller Mannschaften an, für die eine Tabellen-ID hinterlegt ist. Dieser Block benötigt keine Mannschaftsauswahl."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:248
+#: build/blocks/tables-overview/index.js:14
+msgid "Spalten"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:249
+msgid "Eine, zwei oder drei Spalten für die Darstellung auf großen Bildschirmen."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:250
+msgid "Legt die Rasterbreite fest."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:251
+msgid "Auf schmaleren Bildschirmen reduziert sich das Raster automatisch: drei Spalten werden unterhalb von 992 Pixeln zu zwei, unterhalb von 768 Pixeln wird stets einspaltig dargestellt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:252
+msgid "Die gewählte Anzahl wird in der Blockvorschau genannt."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:253
+msgid "Anordnung der Tabellenkarten."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:256
+#: build/blocks/fussball-widget/index.js:14
+#: build/blocks/tables-overview/index.js:14
+msgid "Farbeinstellungen"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:257
+msgid "Wie beim Block „Spielplan & Tabelle“: Hintergrund- und Textfarbe der Kopfzeile sowie Hintergrundfarbe des Inhaltsbereichs."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:258
+msgid "Gilt einheitlich für alle Karten des Rasters."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:259
+msgid "Eine getrennte Einfärbung einzelner Karten ist nicht vorgesehen. Die Kopfzeilen aller Karten einer Zeile werden automatisch auf gleiche Höhe gebracht."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:260
+msgid "Die Blockvorschau übernimmt die Farben unmittelbar."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:261
+msgid "Alle Karten des Rasters."
+msgstr ""
+
+#: includes/Admin/HelpSection.php:270
+msgid "Eingabe"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:271
+msgid "Wirkung"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:272
+msgid "Wechselwirkungen"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:273
+msgid "Im Blockeditor"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:274
+msgid "Im Frontend"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:285
+msgid "Handbuch & Feldreferenz"
+msgstr ""
+
+#: includes/Admin/HelpSection.php:291
+msgid "Jedes Eingabefeld dieses Plugins ist hier erklärt: was einzutragen ist, welche Wechselwirkungen bestehen und wo sich die Einstellung im Blockeditor und auf der Website auswirkt."
+msgstr ""
+
+#: includes/Admin/Layout.php:26
+msgid "Teams & Widgets"
+msgstr ""
+
+#: includes/Admin/Layout.php:55
+msgid "Zu fabrielsoftware.de"
+msgstr ""
+
+#: includes/Admin/Layout.php:65
+msgid "Bereiche des Team-Managers"
+msgstr ""
+
+#: includes/Admin/Layout.php:78
+msgid "Support per E-Mail"
+msgstr ""
+
+#: includes/Admin/Layout.php:80
+msgid "Support"
+msgstr ""
+
+#: includes/Admin/Layout.php:95
+msgid "Entwickelt von"
+msgstr ""
+
+#: includes/Admin/Layout.php:96
+msgid "Spenden"
+msgstr ""
+
+#: includes/Admin/Notices.php:18
+msgid "Mannschaft gelöscht."
+msgstr ""
+
+#: includes/Admin/Notices.php:19
+msgid "Mannschaft und Zeiträume gespeichert."
+msgstr ""
+
+#: includes/Admin/Notices.php:20
+msgid "Neue Mannschaft angelegt. Trage nun die Widget-IDs ein."
+msgstr ""
+
+#: includes/Admin/Notices.php:21
+msgid "Datenschutz-Einstellungen gespeichert."
+msgstr ""
+
+#: includes/Admin/Notices.php:22
+msgid "Der Stand vor dem letzten Import wurde wiederhergestellt."
+msgstr ""
+
+#: includes/Admin/Notices.php:34
+msgid "Sicherung eingespielt: vorhandene Mannschaften wurden ergänzt bzw. aktualisiert."
+msgstr ""
+
+#: includes/Admin/Notices.php:35
+msgid "Sicherung eingespielt: der bisherige Bestand wurde ersetzt."
+msgstr ""
+
+#: includes/Admin/Notices.php:44
+msgid "Import rückgängig machen"
+msgstr ""
+
+#: includes/Admin/Notices.php:51
+msgid "Eine Mannschaft mit diesem Kürzel existiert bereits."
+msgstr ""
+
+#: includes/Admin/Notices.php:52
+msgid "Ungültige JSON-Datei oder Datei zu groß."
+msgstr ""
+
+#: includes/Admin/Notices.php:53
+msgid "Die Sicherung konnte nicht eingespielt werden. Möglicherweise stammt sie aus einer neueren Version."
+msgstr ""
+
+#: includes/Admin/Notices.php:54
+msgid "Bitte einen Namen für die Mannschaft eingeben."
+msgstr ""
+
+#: includes/Admin/Notices.php:55
+msgid "Es ist kein Wiederherstellungspunkt mehr vorhanden."
+msgstr ""
+
+#: includes/Admin/Notices.php:56
+msgid "Speichern abgebrochen. Bitte die rot markierten Felder korrigieren; die Eingaben wurden beibehalten."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:77
+msgid "Spielpläne und Tabellen werden vom externen Anbieter fussball.de geladen. Dabei wird die IP-Adresse der Besucher an den Anbieter übertragen."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:86
+msgid "Externe Inhalte werden erst nach ausdrücklicher Bestätigung durch den Besucher geladen. Die Einstellung gilt für alle Widgets."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:90
+msgid "Hinweis „Eingebunden durch Fabriel Software Teammanager“ anzeigen"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:91
+msgid "Blendet unter jeder Karte im Frontend einen Hinweis mit Link auf die Herstellerseite ein. Standardmäßig ausgeschaltet; das Plugin funktioniert ohne diesen Hinweis vollständig."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:93
+msgid "Einstellung speichern"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:108
+msgid "Datensicherung: Teams & Widgets"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:114
+msgid "Teams exportieren"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:117
+msgid "Lade alle Mannschaften, Zeiträume und Widget-Zuordnungen als JSON-Sicherung herunter."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:121
+msgid "Sicherung herunterladen"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:128
+msgid "Teams wiederherstellen"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:131
+msgid "Spiele eine zuvor exportierte JSON-Datei wieder ein."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:139
+msgid "Ergänzen"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:140
+msgid "Mannschaften aus der Datei werden hinzugefügt oder aktualisiert. Vorhandene, die nicht in der Datei stehen, bleiben erhalten."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:144
+msgid "Ersetzen"
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:145
+msgid "Der komplette Bestand wird durch den Inhalt der Datei ersetzt. Der bisherige Stand lässt sich direkt danach einmalig wiederherstellen."
+msgstr ""
+
+#: includes/Admin/SettingsPage.php:150
+msgid "JSON einspielen"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:117
+msgid "Inhalte werden geladen …"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:118
+#: includes/Blocks/BlockRegistrar.php:201
+msgid "An dieser Stelle wird ein Inhalt des externen Anbieters fussball.de eingebunden. Beim Laden werden Daten – unter anderem Ihre IP-Adresse – an den Anbieter übertragen."
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:119
+#: includes/Blocks/BlockRegistrar.php:202
+msgid "Auswahl für diesen Browser merken"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:120
+#: includes/Blocks/BlockRegistrar.php:203
+msgid "Inhalt laden"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:121
+#: includes/Blocks/BlockRegistrar.php:207
+msgid "Zur Website des Anbieters"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:131
+#: build/blocks/fussball-widget/index.js:14
+msgid "Automatisch (anhand Seite)"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:131
+#: build/blocks/fussball-widget/index.js:14
+msgid "Automatisch (aktuelle Seite)"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:152
+#: includes/Blocks/BlockRegistrar.php:313
+#: build/blocks/fussball-widget/index.js:14
+msgid "Spielplan"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:153
+#: includes/Blocks/BlockRegistrar.php:313
+#: build/blocks/fussball-widget/index.js:14
+msgid "Tabelle"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:176
+msgid "Für diesen Zeitraum ist kein Widget hinterlegt."
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:179
+msgid "Das Laden externer Inhalte ist auf dieser Website deaktiviert."
+msgstr ""
+
+#. translators: %s: label of the displayed period
+#: includes/Blocks/BlockRegistrar.php:219
+#, php-format
+msgid "Für den heutigen Tag ist kein Zeitraum hinterlegt. Angezeigt wird der zuletzt gepflegte Zeitraum: %s"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:222
+msgid "Letzter Zeitraum"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:272
+msgid "Ab"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:276
+msgid "Aktuell"
+msgstr ""
+
+#: includes/Blocks/BlockRegistrar.php:332
+msgid "Zeitraum auswählen"
+msgstr ""
+
+#: includes/Data/TeamRepository.php:35
+msgid "Mannschaften"
+msgstr ""
+
+#: includes/Data/TeamRepository.php:77
+msgid "Standard-Zeitraum"
+msgstr ""
+
+#: includes/Data/TeamRepository.php:97
+msgid "1. Mannschaft"
+msgstr ""
+
+#: includes/Data/TeamRepository.php:232
+msgid "Ungültiges Kürzel."
+msgstr ""
+
+#. translators: 1: period label, 2: entered value
+#: includes/Data/TeamRepository.php:392
+#: build/admin.js:20
+#, php-format,js-format
+msgid "Ungültige Spielplan-ID im Zeitraum „%1$s“ (%2$s)."
+msgstr ""
+
+#. translators: 1: period label, 2: entered value
+#: includes/Data/TeamRepository.php:396
+#: build/admin.js:21
+#, php-format,js-format
+msgid "Ungültige Tabellen-ID im Zeitraum „%1$s“ (%2$s)."
+msgstr ""
+
+#. translators: 1: earlier period label, 2: following period label
+#: includes/Data/TeamRepository.php:431
+#, php-format
+msgid "Zeitraum „%1$s“ benötigt ein Enddatum, da danach „%2$s“ folgt."
+msgstr ""
+
+#. translators: 1: earlier period label, 2: its end date, 3: following period label, 4: its start date
+#: includes/Data/TeamRepository.php:434
+#: build/admin.js:16
+#, php-format,js-format
+msgid "Überlappung: „%1$s“ (bis %2$s) überschneidet sich mit „%3$s“ (ab %4$s)."
+msgstr ""
+
+#: includes/Data/TeamRepository.php:538
+msgid "Kein Zeitraum"
+msgstr ""
+
+#: includes/Data/TeamRepository.php:548
+msgid "Aktueller Zeitraum"
+msgstr ""
+
+#. translators: %s: current PHP version
+#: includes/Plugin.php:43
+#, php-format
+msgid "Fabriel Software Team-Manager erfordert mindestens PHP Version 7.4. Auf Ihrem Server läuft PHP Version %s."
+msgstr ""
+
+#: includes/Plugin.php:46
+#: includes/Plugin.php:60
+msgid "Plugin-Aktivierungsfehler"
+msgstr ""
+
+#. translators: %s: current WordPress version
+#: includes/Plugin.php:57
+#, php-format
+msgid "Fabriel Software Team-Manager erfordert mindestens WordPress Version 6.0. Auf Ihrer Website läuft WordPress Version %s."
+msgstr ""
+
+#: build/admin.js:14
+msgid "Fehler:"
+msgstr ""
+
+#: build/admin.js:14
+msgid "Erfolg:"
+msgstr ""
+
+#: build/admin.js:14
+msgid "Hinweis:"
+msgstr ""
+
+#: build/admin.js:14
+#: build/admin.js:19
+msgid "Unbenannter Zeitraum"
+msgstr ""
+
+#. translators: 1: earlier period label, 2: following period label
+#: build/admin.js:18
+#, js-format
+msgid "„%1$s“ hat kein Enddatum, obwohl danach „%2$s“ folgt."
+msgstr ""
+
+#: build/admin.js:18
+msgid "Zeitüberlappung"
+msgstr ""
+
+#: build/admin.js:18
+msgid "Reihenfolge der Mannschaften aktualisiert!"
+msgstr ""
+
+#: build/admin.js:18
+msgid "einer Mannschaft"
+msgstr ""
+
+#. translators: %s: team name
+#: build/admin.js:19
+#, js-format
+msgid ""
+"Achtung: Sie haben ungespeicherte Änderungen in „%s“.\n"
+"\n"
+"Wenn Sie zu einer anderen Mannschaft wechseln, werden diese Änderungen verworfen.\n"
+"\n"
+"Möchten Sie fortfahren und die Änderungen verwerfen?"
+msgstr ""
+
+#: build/admin.js:19
+msgid "Teamdaten werden geladen …"
+msgstr ""
+
+#: build/admin.js:19
+msgid "Fehler beim Nachladen der Daten."
+msgstr ""
+
+#: build/admin.js:19
+msgid "Netzwerkfehler beim Laden."
+msgstr ""
+
+#: build/admin.js:19
+msgid "Möchten Sie alle ungespeicherten Änderungen in diesem Team verwerfen?"
+msgstr ""
+
+#: build/admin.js:19
+msgid "Änderungen wurden verworfen."
+msgstr ""
+
+#: build/admin.js:19
+msgid "Sie haben ungespeicherte Änderungen in diesem Team. Möchten Sie es wirklich zuklappen und die Änderungen verwerfen?"
+msgstr ""
+
+#: build/admin.js:19
+msgid "Unbenanntes Team"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Speichern blockiert:"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Speichern blockiert: Bitte korrigiere die rot markierten Zeiträume."
+msgstr ""
+
+#: build/admin.js:21
+msgid "Neuer Zeitraum"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Neu (ungespeichert)"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Löschen"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Wird im Frontend-Dropdown und im Header angezeigt."
+msgstr ""
+
+#: build/admin.js:21
+msgid "Datum, ab dem die Website automatisch umschaltet."
+msgstr ""
+
+#: build/admin.js:21
+msgid "Enddatum."
+msgstr ""
+
+#: build/admin.js:21
+msgid "UUID aus dem Einbettungscode von fussball.de (data-type „team-matches\")."
+msgstr ""
+
+#: build/admin.js:21
+msgid "UUID aus dem Einbettungscode von fussball.de (data-type „table\")."
+msgstr ""
+
+#: build/admin.js:21
+msgid "Testen"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Schaltet den Widget-Typ von „team-matches\" auf „club-matches\" um."
+msgstr ""
+
+#: build/admin.js:21
+msgid "z. B. 01234567-89ab-cdef-0123-456789abcdef"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Möchten Sie diesen Zeitraum wirklich löschen?"
+msgstr ""
+
+#: build/admin.js:21
+msgid "Bitte zuerst eine UUID in das Feld eintragen."
+msgstr ""
+
+#: build/admin.js:21
+msgid "Ungültiges UUID-Format (erwartet: 36 Zeichen mit Bindestrichen)."
+msgstr ""
+
+#: build/admin.js:21
+msgid ""
+"Achtung: Im Modus „Ersetzen\" wird der komplette aktuelle Bestand durch den Inhalt der Datei ersetzt.\n"
+"\n"
+"Möchten Sie das Backup jetzt einspielen?"
+msgstr ""
+
+#: build/admin.js:21
+msgid ""
+"Die Mannschaften aus der Datei werden hinzugefügt bzw. aktualisiert.\n"
+"\n"
+"Möchten Sie das Backup jetzt einspielen?"
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Immer aktuell (Datum)"
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Mannschaft auswählen:"
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Wähle ein festes Team oder die automatische Erkennung anhand der aktuellen Seite."
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Ansicht:"
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Bestimmt, ob der Spielplan oder die Ligatabelle geladen werden soll."
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Start-Zeitraum:"
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Immer aktuell wählt automatisch den passenden Zeitraum anhand des Datums."
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Mannschaftsnamen übernehmen"
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Bestimmt, ob der Mannschaftsname im Widget-Kartenheader im Frontend angezeigt wird."
+msgstr ""
+
+#: build/blocks/fussball-widget/index.js:14
+msgid "Mannschaft:"
+msgstr ""
+
+#: build/blocks/tables-overview/index.js:14
+msgid "Layout Einstellungen"
+msgstr ""
+
+#: build/blocks/tables-overview/index.js:14
+msgid "Spalten:"
+msgstr ""
+
+#: build/blocks/tables-overview/index.js:14
+msgid "Anzahl der Spalten auf Desktop-Bildschirmen."
+msgstr ""
+
+#: build/blocks/tables-overview/index.js:14
+msgid "Spalte"
+msgstr ""
+
+#: build/blocks/tables-overview/index.js:14
+msgid "Raster-Ansicht"
+msgstr ""
+
+#: build/blocks/tables-overview/index.js:14
+msgid "Zeigt alle aktiven Tabellen automatisch gruppiert an."
+msgstr ""
+
+#: build/blocks/fussball-widget/block.json
+msgctxt "block title"
+msgid "Spielplan & Tabelle"
+msgstr ""
+
+#: build/blocks/fussball-widget/block.json
+msgctxt "block description"
+msgid "Zeigt Spielplan oder Tabelle einer Mannschaft über ein Widget von fussball.de an."
+msgstr ""
+
+#: build/blocks/tables-overview/block.json
+msgctxt "block title"
+msgid "Tabellen-Übersicht (Grid)"
+msgstr ""
+
+#: build/blocks/tables-overview/block.json
+msgctxt "block description"
+msgid "Raster-Übersicht aller Ligatabellen der Mannschaften."
+msgstr ""
