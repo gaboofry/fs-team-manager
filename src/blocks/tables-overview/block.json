@@ -7,7 +7,7 @@
   "category": "fs-tm-blocks",
   "icon": "grid-view",
   "description": "Raster-Übersicht aller Ligatabellen der Mannschaften.",
-  "textdomain": "fs-team-manager",
+  "textdomain": "fabriel-team-manager",
   "attributes": {
     "columns": { "type": "string", "default": "2" },
     "colorScheme": { "type": "string", "default": "" },

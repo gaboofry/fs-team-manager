@@ -25,15 +25,15 @@ export default function Edit({ attributes, setAttributes }) {
     return (
         <>
             <InspectorControls>
-                <PanelBody title={__('Layout Einstellungen', 'fs-team-manager')} initialOpen={true}>
+                <PanelBody title={__('Layout Einstellungen', 'fabriel-team-manager')} initialOpen={true}>
                     <SelectControl
-                        label={__('Spalten:', 'fs-team-manager')}
-                        help={__('Anzahl der Spalten auf Desktop-Bildschirmen.', 'fs-team-manager')}
+                        label={__('Spalten:', 'fabriel-team-manager')}
+                        help={__('Anzahl der Spalten auf Desktop-Bildschirmen.', 'fabriel-team-manager')}
                         value={columns}
                         options={[
-                            { label: '1 ' + __('Spalte', 'fs-team-manager'), value: '1' },
-                            { label: '2 ' + __('Spalten', 'fs-team-manager'), value: '2' },
-                            { label: '3 ' + __('Spalten', 'fs-team-manager'), value: '3' }
+                            { label: '1 ' + __('Spalte', 'fabriel-team-manager'), value: '1' },
+                            { label: '2 ' + __('Spalten', 'fabriel-team-manager'), value: '2' },
+                            { label: '3 ' + __('Spalten', 'fabriel-team-manager'), value: '3' }
                         ]}
                         onChange={(val) => setAttributes({ columns: val })}
                     />
@@ -47,8 +47,8 @@ export default function Edit({ attributes, setAttributes }) {
                     Tabellen-Übersicht (Grid)
                 </div>
                 <div style={{ padding: '18px 20px', background: 'var(--fs-tm-card-body-bg)', color: 'var(--fs-tm-body-ink)', textAlign: 'center', fontSize: '13px' }}>
-                    <strong style={{ display: 'block', marginBottom: '4px' }}>{__('Raster-Ansicht', 'fs-team-manager')} ({columns} {__('Spalten', 'fs-team-manager')})</strong>
-                    <span style={{ color: 'var(--fs-tm-body-ink-soft)', fontSize: '12px' }}>{__('Zeigt alle aktiven Tabellen automatisch gruppiert an.', 'fs-team-manager')}</span>
+                    <strong style={{ display: 'block', marginBottom: '4px' }}>{__('Raster-Ansicht', 'fabriel-team-manager')} ({columns} {__('Spalten', 'fabriel-team-manager')})</strong>
+                    <span style={{ color: 'var(--fs-tm-body-ink-soft)', fontSize: '12px' }}>{__('Zeigt alle aktiven Tabellen automatisch gruppiert an.', 'fabriel-team-manager')}</span>
                 </div>
             </div>
         </>

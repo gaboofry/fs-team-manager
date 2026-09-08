@@ -1,4 +1,4 @@
-=== Fabriel Software Team-Manager ===
+=== Fabriel Team Manager ===
 Contributors: fabrielsoftware
 Donate link: https://paypal.me/fabergab
 Tags: fussball, soccer, sports, tables, blocks
@@ -17,7 +17,7 @@ Central management of teams, time periods, fixtures and league tables for fussba
 
 Every team page on a club website contains a fussball.de widget whose ID is a 36-character string. These IDs change with every season – separately for each team, and for the fixture list and the league table. With twelve teams that is more than twenty IDs that someone has to type in by hand once a year and enter into twenty different pages. Usually as a volunteer, usually in the evening, and a transposed digit often only becomes apparent weeks later.
 
-Fabriel Software Team-Manager ends that. All teams, all widget IDs and all time periods are stored in one central place. What is stored there applies across the entire website.
+Fabriel Team Manager ends that. All teams, all widget IDs and all time periods are stored in one central place. What is stored there applies across the entire website.
 
 = The five most important benefits =
 
@@ -174,7 +174,7 @@ The build tooling is bundled with the plugin: `package.json`, `package-lock.json
 
 1. Install the exact build dependencies: `npm ci` (or `npm install`)
 2. Compile JavaScript, SCSS and block assets into `build/`: `npm run build`
-3. Optional: rebuild the translation template with WP-CLI: `wp i18n make-pot . languages/fs-team-manager.pot --slug=fs-team-manager --domain=fs-team-manager --exclude=node_modules,vendor,src`
+3. Optional: rebuild the translation template with WP-CLI: `wp i18n make-pot . languages/fabriel-team-manager.pot --slug=fabriel-team-manager --domain=fabriel-team-manager --exclude=node_modules,vendor,src`
 
 The build is driven by `@wordpress/scripts` (webpack + Babel + Dart Sass); no other build system is required. The repository additionally contains the ready-made scripts `build.sh` (Linux/macOS) and `build.ps1` (Windows), which run the full build and produce the distribution zip. Those scripts are not part of the shipped plugin; clone the repository to use them.
 

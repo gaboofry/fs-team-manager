@@ -40,15 +40,15 @@ fi
 
 # 3b. Uebersetzungsvorlage erzeugen (benoetigt WP-CLI)
 if command -v wp >/dev/null 2>&1; then
-    echo -e "${YELLOW}[INFO] Erzeuge languages/fs-team-manager.pot...${NC}"
-    wp i18n make-pot . languages/fs-team-manager.pot --slug=fs-team-manager --domain=fs-team-manager --exclude=node_modules,vendor,src
+    echo -e "${YELLOW}[INFO] Erzeuge languages/fabriel-team-manager.pot...${NC}"
+    wp i18n make-pot . languages/fabriel-team-manager.pot --slug=fabriel-team-manager --domain=fabriel-team-manager --exclude=node_modules,vendor,src
     wp i18n make-json languages --no-purge --pretty-print
 else
     echo -e "${YELLOW}[WARN] WP-CLI nicht gefunden - languages/*.pot wird nicht aktualisiert.${NC}"
 fi
 
 # 4. ZIP Distribution erstellen
-ZIP_NAME="fs-team-manager.zip"
+ZIP_NAME="fabriel-team-manager.zip"
 ZIP_PATH="$(pwd)/$ZIP_NAME"
 
 if [ -f "$ZIP_PATH" ]; then
@@ -64,7 +64,7 @@ fi
 TEMP_DIR="$(mktemp -d 2>/dev/null || mktemp -d -t 'fs-tm-dist')"
 trap 'rm -rf "$TEMP_DIR"' EXIT
 
-PLUGIN_DIST_DIR="$TEMP_DIR/fs-team-manager"
+PLUGIN_DIST_DIR="$TEMP_DIR/fabriel-team-manager"
 mkdir -p "$PLUGIN_DIST_DIR"
 
 echo -e "${YELLOW}[INFO] Sammle Produktionsdateien...${NC}"
@@ -74,7 +74,7 @@ echo -e "${YELLOW}[INFO] Sammle Produktionsdateien...${NC}"
 # build.sh und build.ps1 gehoeren NICHT in das ZIP: der Plugin Check meldet
 # ausfuehrbare Skripte als "application_detected". Sie bleiben im oeffentlichen
 # Repository, auf das readme.txt verweist.
-for item in fs-team-manager.php uninstall.php index.php readme.txt license.txt includes languages build src package.json package-lock.json webpack.config.js composer.json; do
+for item in fabriel-team-manager.php uninstall.php index.php readme.txt license.txt includes languages build src package.json package-lock.json webpack.config.js composer.json; do
     if [ -e "$item" ]; then
         cp -R "$item" "$PLUGIN_DIST_DIR/"
     fi

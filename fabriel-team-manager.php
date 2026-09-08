@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Fabriel Software Team-Manager
+ * Plugin Name:       Fabriel Team Manager
  * Plugin URI:        https://teammanager.fabrielsoftware.de/
  * Description:       Zentrale Verwaltung von Mannschaften, Zeiträumen, Spielplänen und Tabellen für Widgets von fussball.de.
  * Version:           1.2.2
@@ -11,7 +11,7 @@
  * Author URI:        https://fabrielsoftware.de/
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       fs-team-manager
+ * Text Domain:       fabriel-team-manager
  * Domain Path:       /languages
  *
  * Source code:      https://github.com/gaboofry/fs-team-manager.git

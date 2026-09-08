@@ -51,11 +51,11 @@ class Notices {
         }
 
         $success = array(
-            'deleted'       => __('Mannschaft gelöscht.', 'fs-team-manager'),
-            'saved'         => __('Mannschaft und Zeiträume gespeichert.', 'fs-team-manager'),
-            'created'       => __('Neue Mannschaft angelegt. Trage nun die Widget-IDs ein.', 'fs-team-manager'),
-            'privacy_saved' => __('Datenschutz-Einstellungen gespeichert.', 'fs-team-manager'),
-            'restored'      => __('Der Stand vor dem letzten Import wurde wiederhergestellt.', 'fs-team-manager'),
+            'deleted'       => __('Mannschaft gelöscht.', 'fabriel-team-manager'),
+            'saved'         => __('Mannschaft und Zeiträume gespeichert.', 'fabriel-team-manager'),
+            'created'       => __('Neue Mannschaft angelegt. Trage nun die Widget-IDs ein.', 'fabriel-team-manager'),
+            'privacy_saved' => __('Datenschutz-Einstellungen gespeichert.', 'fabriel-team-manager'),
+            'restored'      => __('Der Stand vor dem letzten Import wurde wiederhergestellt.', 'fabriel-team-manager'),
         );
 
         foreach ($success as $key => $message) {
@@ -67,8 +67,8 @@ class Notices {
         if (isset($_GET['imported'])) {
             $mode = isset($_GET['mode']) ? sanitize_key(wp_unslash($_GET['mode'])) : 'replace';
             $text = ($mode === 'merge')
-                ? __('Sicherung eingespielt: vorhandene Mannschaften wurden ergänzt bzw. aktualisiert.', 'fs-team-manager')
-                : __('Sicherung eingespielt: der bisherige Bestand wurde ersetzt.', 'fs-team-manager');
+                ? __('Sicherung eingespielt: vorhandene Mannschaften wurden ergänzt bzw. aktualisiert.', 'fabriel-team-manager')
+                : __('Sicherung eingespielt: der bisherige Bestand wurde ersetzt.', 'fabriel-team-manager');
 
             $undo = '';
             if (ExportImport::hasRestorePoint()) {
@@ -77,19 +77,19 @@ class Notices {
                     'fs_tm_restore_backup_action',
                     'fs_tm_restore_nonce'
                 );
-                $undo = ' <a href="' . esc_url($url) . '">' . esc_html__('Import rückgängig machen', 'fs-team-manager') . '</a>';
+                $undo = ' <a href="' . esc_url($url) . '">' . esc_html__('Import rückgängig machen', 'fabriel-team-manager') . '</a>';
             }
             Layout::notice('success', $text, $undo);
         }
 
         if (isset($_GET['error'])) {
             $errors = array(
-                'slug_exists'       => __('Eine Mannschaft mit diesem Kürzel existiert bereits.', 'fs-team-manager'),
-                'invalid_json'      => __('Ungültige JSON-Datei oder Datei zu groß.', 'fs-team-manager'),
-                'import_failed'     => __('Die Sicherung konnte nicht eingespielt werden. Möglicherweise stammt sie aus einer neueren Version.', 'fs-team-manager'),
-                'empty_name'        => __('Bitte einen Namen für die Mannschaft eingeben.', 'fs-team-manager'),
-                'no_restore_point'  => __('Es ist kein Wiederherstellungspunkt mehr vorhanden.', 'fs-team-manager'),
-                'validation_failed' => __('Speichern abgebrochen. Bitte die rot markierten Felder korrigieren; die Eingaben wurden beibehalten.', 'fs-team-manager'),
+                'slug_exists'       => __('Eine Mannschaft mit diesem Kürzel existiert bereits.', 'fabriel-team-manager'),
+                'invalid_json'      => __('Ungültige JSON-Datei oder Datei zu groß.', 'fabriel-team-manager'),
+                'import_failed'     => __('Die Sicherung konnte nicht eingespielt werden. Möglicherweise stammt sie aus einer neueren Version.', 'fabriel-team-manager'),
+                'empty_name'        => __('Bitte einen Namen für die Mannschaft eingeben.', 'fabriel-team-manager'),
+                'no_restore_point'  => __('Es ist kein Wiederherstellungspunkt mehr vorhanden.', 'fabriel-team-manager'),
+                'validation_failed' => __('Speichern abgebrochen. Bitte die rot markierten Felder korrigieren; die Eingaben wurden beibehalten.', 'fabriel-team-manager'),
             );
 
             $code = sanitize_key(wp_unslash($_GET['error']));

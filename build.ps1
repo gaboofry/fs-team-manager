@@ -33,22 +33,22 @@ if (-not (Test-Path 'build')) {
 
 # 3b. Uebersetzungsvorlage erzeugen (benoetigt WP-CLI)
 if (Get-Command wp -ErrorAction SilentlyContinue) {
-    Write-Host '[INFO] Erzeuge languages/fs-team-manager.pot...' -ForegroundColor Yellow
-    wp i18n make-pot . languages/fs-team-manager.pot --slug=fs-team-manager --domain=fs-team-manager --exclude=node_modules,vendor,src
+    Write-Host '[INFO] Erzeuge languages/fabriel-team-manager.pot...' -ForegroundColor Yellow
+    wp i18n make-pot . languages/fabriel-team-manager.pot --slug=fabriel-team-manager --domain=fabriel-team-manager --exclude=node_modules,vendor,src
     wp i18n make-json languages --no-purge --pretty-print
 } else {
     Write-Host '[WARN] WP-CLI nicht gefunden - languages/*.pot wird nicht aktualisiert.' -ForegroundColor Yellow
 }
 
 # 4. ZIP Distribution erstellen (Linux/WordPress-kompatibel mit Forward-Slashes)
-$ZipName = 'fs-team-manager.zip'
+$ZipName = 'fabriel-team-manager.zip'
 $ZipPath = Join-Path (Get-Location) $ZipName
 if (Test-Path $ZipPath) {
     Remove-Item $ZipPath -Force
 }
 
 $TempDir = Join-Path $env:TEMP ('fs-tm-dist-' + [guid]::NewGuid().ToString('N'))
-$PluginDistDir = Join-Path $TempDir 'fs-team-manager'
+$PluginDistDir = Join-Path $TempDir 'fabriel-team-manager'
 
 New-Item -ItemType Directory -Path $PluginDistDir -Force | Out-Null
 
@@ -60,7 +60,7 @@ Write-Host '[INFO] Sammle Produktionsdateien...' -ForegroundColor Yellow
 # ausfuehrbare Skripte als "application_detected". Sie bleiben im oeffentlichen
 # Repository, auf das readme.txt verweist.
 foreach ($item in @(
-    'fs-team-manager.php', 'uninstall.php', 'index.php', 'readme.txt', 'license.txt',
+    'fabriel-team-manager.php', 'uninstall.php', 'index.php', 'readme.txt', 'license.txt',
     'includes', 'languages', 'build', 'src',
     'package.json', 'package-lock.json', 'webpack.config.js', 'composer.json'
 )) {

@@ -24,14 +24,14 @@ const SOURCE_OF = {
 };
 
 const header = (fileName) => [
-    '/*! Fabriel Software Team-Manager v' + pkg.version,
+    '/*! Fabriel Team Manager v' + pkg.version,
     ' *',
     ' * This file is GENERATED - do not edit it directly.',
     ' * Source file:  ' + (SOURCE_OF[fileName] || 'src/'),
     ' * Rebuild with: npm ci && npm run build',
     ' * Source code:  ' + REPOSITORY,
     ' *',
-    ' * @package   fs-team-manager',
+    ' * @package   fabriel-team-manager',
     ' * @author    Fabriel Software (https://fabrielsoftware.de/)',
     ' * @copyright Fabriel Software',
     ' * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later',

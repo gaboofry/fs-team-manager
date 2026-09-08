@@ -31,7 +31,7 @@ class SettingsPage {
 
     public static function render() {
         if (!Plugin::currentUserCan()) {
-            wp_die(esc_html__('Keine Berechtigung.', 'fs-team-manager'));
+            wp_die(esc_html__('Keine Berechtigung.', 'fabriel-team-manager'));
         }
 
         // Reiner Anzeigeparameter: wählt nur den geöffneten Abschnitt. Er stammt aus dem
@@ -69,15 +69,15 @@ class SettingsPage {
     /* ------------------------------------------------------------------ */
 
     private static function renderPrivacy($open) {
-        Layout::collapsibleOpen('fs-tm-privacy-box', '🔒', __('Datenschutz & externe Inhalte', 'fs-team-manager'), array('collapsed' => !$open));
+        Layout::collapsibleOpen('fs-tm-privacy-box', '🔒', __('Datenschutz & externe Inhalte', 'fabriel-team-manager'), array('collapsed' => !$open));
         ?>
         <div class="fs-tm-privacy-grid">
             <div class="fs-tm-privacy-row fs-tm-privacy-row--title">
-                <h3><?php esc_html_e('Datenschutz & externe Inhalte', 'fs-team-manager'); ?></h3>
+                <h3><?php esc_html_e('Datenschutz & externe Inhalte', 'fabriel-team-manager'); ?></h3>
             </div>
             <div class="fs-tm-privacy-row fs-tm-privacy-row--description">
                 <p>
-                    <?php esc_html_e('Spielpläne und Tabellen werden vom externen Anbieter fussball.de geladen. Dabei wird die IP-Adresse der Besucher an den Anbieter übertragen.', 'fs-team-manager'); ?>
+                    <?php esc_html_e('Spielpläne und Tabellen werden vom externen Anbieter fussball.de geladen. Dabei wird die IP-Adresse der Besucher an den Anbieter übertragen.', 'fabriel-team-manager'); ?>
                 </p>
             </div>
             <div class="fs-tm-privacy-row fs-tm-privacy-row--actions">
@@ -85,15 +85,15 @@ class SettingsPage {
                     <?php wp_nonce_field('fs_tm_privacy_action', 'fs_tm_privacy_nonce'); ?>
                     <label class="fs-tm-checkbox-pill">
                         <input type="checkbox" name="fs_tm_click_to_load" value="1" <?php checked(get_option('fs_tm_click_to_load', 0), 1); ?>>
-                        <span><?php esc_html_e('Zwei-Klick-Lösung aktivieren', 'fs-team-manager'); ?></span>
-                        <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Externe Inhalte werden erst nach ausdrücklicher Bestätigung durch den Besucher geladen. Die Einstellung gilt für alle Widgets.', 'fs-team-manager'); ?>">?</span>
+                        <span><?php esc_html_e('Zwei-Klick-Lösung aktivieren', 'fabriel-team-manager'); ?></span>
+                        <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Externe Inhalte werden erst nach ausdrücklicher Bestätigung durch den Besucher geladen. Die Einstellung gilt für alle Widgets.', 'fabriel-team-manager'); ?>">?</span>
                     </label>
                     <label class="fs-tm-checkbox-pill">
                         <input type="checkbox" name="fs_tm_show_attribution" value="1" <?php checked(get_option('fs_tm_show_attribution', 0), 1); ?>>
-                        <span><?php esc_html_e('Hinweis „Eingebunden durch Fabriel Software Teammanager“ anzeigen', 'fs-team-manager'); ?></span>
-                        <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Blendet unter jeder Karte im Frontend einen Hinweis mit Link auf die Herstellerseite ein. Standardmäßig ausgeschaltet; das Plugin funktioniert ohne diesen Hinweis vollständig.', 'fs-team-manager'); ?>">?</span>
+                        <span><?php esc_html_e('Hinweis „Eingebunden durch Fabriel Software Teammanager“ anzeigen', 'fabriel-team-manager'); ?></span>
+                        <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Blendet unter jeder Karte im Frontend einen Hinweis mit Link auf die Herstellerseite ein. Standardmäßig ausgeschaltet; das Plugin funktioniert ohne diesen Hinweis vollständig.', 'fabriel-team-manager'); ?>">?</span>
                     </label>
-                    <input type="submit" name="fs_tm_save_privacy" class="button fs-tm-btn-primary" value="<?php esc_attr_e('Einstellung speichern', 'fs-team-manager'); ?>">
+                    <input type="submit" name="fs_tm_save_privacy" class="button fs-tm-btn-primary" value="<?php esc_attr_e('Einstellung speichern', 'fabriel-team-manager'); ?>">
                 </form>
             </div>
         </div>
@@ -108,30 +108,30 @@ class SettingsPage {
             'fs_tm_export_teams_nonce'
         );
 
-        Layout::collapsibleOpen('fs-tm-backup-box', '💾', __('Datensicherung: Teams & Widgets', 'fs-team-manager'), array('collapsed' => !$open));
+        Layout::collapsibleOpen('fs-tm-backup-box', '💾', __('Datensicherung: Teams & Widgets', 'fabriel-team-manager'), array('collapsed' => !$open));
         ?>
         <div class="fs-tm-backup-grid">
             <!-- Export Card -->
             <div class="fs-tm-backup-card fs-tm-backup-card--three-row">
                 <div class="fs-tm-backup-card-row fs-tm-backup-card-row--title">
-                    <h3>📤 <?php esc_html_e('Teams exportieren', 'fs-team-manager'); ?></h3>
+                    <h3>📤 <?php esc_html_e('Teams exportieren', 'fabriel-team-manager'); ?></h3>
                 </div>
                 <div class="fs-tm-backup-card-row fs-tm-backup-card-row--description">
-                    <p><?php esc_html_e('Lade alle Mannschaften, Zeiträume und Widget-Zuordnungen als JSON-Sicherung herunter.', 'fs-team-manager'); ?></p>
+                    <p><?php esc_html_e('Lade alle Mannschaften, Zeiträume und Widget-Zuordnungen als JSON-Sicherung herunter.', 'fabriel-team-manager'); ?></p>
                 </div>
                 <div class="fs-tm-backup-card-row fs-tm-backup-card-row--action">
                     <a href="<?php echo esc_url($export_url); ?>" class="button fs-tm-btn-secondary" data-fs-tm-download>
-                        <span class="dashicons dashicons-download"></span> <?php esc_html_e('Sicherung herunterladen', 'fs-team-manager'); ?>
+                        <span class="dashicons dashicons-download"></span> <?php esc_html_e('Sicherung herunterladen', 'fabriel-team-manager'); ?>
                     </a>
                 </div>
             </div>
             <!-- Import Card -->
             <div class="fs-tm-backup-card fs-tm-backup-card fs-tm-backup-card--three-row">
                 <div class="fs-tm-backup-card-row fs-tm-backup-card-row--title">
-                    <h3>📥 <?php esc_html_e('Teams wiederherstellen', 'fs-team-manager'); ?></h3>
+                    <h3>📥 <?php esc_html_e('Teams wiederherstellen', 'fabriel-team-manager'); ?></h3>
                 </div>
                 <div class="fs-tm-backup-card-row fs-tm-backup-card-row--description">
-                    <p><?php esc_html_e('Spiele eine zuvor exportierte JSON-Datei wieder ein.', 'fs-team-manager'); ?></p>
+                    <p><?php esc_html_e('Spiele eine zuvor exportierte JSON-Datei wieder ein.', 'fabriel-team-manager'); ?></p>
                 </div>
                 <div class="fs-tm-backup-card-row fs-tm-backup-card-row--action">
                     <form method="post" enctype="multipart/form-data" action="" id="fs-tm-import-form">
@@ -139,18 +139,18 @@ class SettingsPage {
                         <div class="fs-tm-import-mode">
                             <label class="fs-tm-checkbox-pill">
                                 <input type="radio" name="fs_tm_import_mode" value="merge" checked>
-                                <span><?php esc_html_e('Ergänzen', 'fs-team-manager'); ?></span>
-                                <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Mannschaften aus der Datei werden hinzugefügt oder aktualisiert. Vorhandene, die nicht in der Datei stehen, bleiben erhalten.', 'fs-team-manager'); ?>">?</span>
+                                <span><?php esc_html_e('Ergänzen', 'fabriel-team-manager'); ?></span>
+                                <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Mannschaften aus der Datei werden hinzugefügt oder aktualisiert. Vorhandene, die nicht in der Datei stehen, bleiben erhalten.', 'fabriel-team-manager'); ?>">?</span>
                             </label>
                             <label class="fs-tm-checkbox-pill">
                                 <input type="radio" name="fs_tm_import_mode" value="replace">
-                                <span><?php esc_html_e('Ersetzen', 'fs-team-manager'); ?></span>
-                                <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Der komplette Bestand wird durch den Inhalt der Datei ersetzt. Der bisherige Stand lässt sich direkt danach einmalig wiederherstellen.', 'fs-team-manager'); ?>">?</span>
+                                <span><?php esc_html_e('Ersetzen', 'fabriel-team-manager'); ?></span>
+                                <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Der komplette Bestand wird durch den Inhalt der Datei ersetzt. Der bisherige Stand lässt sich direkt danach einmalig wiederherstellen.', 'fabriel-team-manager'); ?>">?</span>
                             </label>
                         </div>
                         <div class="fs-tm-file-upload-wrap">
                             <input type="file" name="fs_tm_import_teams_file" accept=".json,application/json" required class="fs-tm-file-input">
-                            <input type="submit" name="fs_tm_import_teams_submit" class="button fs-tm-btn-secondary" value="<?php esc_attr_e('JSON einspielen', 'fs-team-manager'); ?>">
+                            <input type="submit" name="fs_tm_import_teams_submit" class="button fs-tm-btn-secondary" value="<?php esc_attr_e('JSON einspielen', 'fabriel-team-manager'); ?>">
                         </div>
                     </form>
                 </div>

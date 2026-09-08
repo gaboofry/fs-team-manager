@@ -4,7 +4,7 @@
  * Human-readable source of build/frontend.js.
  * Compile with: npm ci && npm run build
  *
- * @package   fs-team-manager
+ * @package   fabriel-team-manager
  * @author    Fabriel Software (https://fabrielsoftware.de/)
  * @copyright Fabriel Software
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later

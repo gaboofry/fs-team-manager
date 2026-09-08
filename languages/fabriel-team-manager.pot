@@ -2,8 +2,8 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Fabriel Software Team-Manager 1.2.2\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fs-team-manager\n"
+"Project-Id-Version: Fabriel Team Manager 1.2.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fabriel-team-manager\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -12,30 +12,30 @@ msgstr ""
 "POT-Creation-Date: 2026-09-02T17:56:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: fs-team-manager\n"
+"X-Domain: fabriel-team-manager\n"
 
 #. Plugin Name of the plugin
-#: fs-team-manager.php
-msgid "Fabriel Software Team-Manager"
+#: fabriel-team-manager.php
+msgid "Fabriel Team Manager"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: fs-team-manager.php
+#: fabriel-team-manager.php
 msgid "https://teammanager.fabrielsoftware.de/"
 msgstr ""
 
 #. Description of the plugin
-#: fs-team-manager.php
+#: fabriel-team-manager.php
 msgid "Zentrale Verwaltung von Mannschaften, Zeiträumen, Spielplänen und Tabellen für Widgets von fussball.de."
 msgstr ""
 
 #. Author of the plugin
-#: fs-team-manager.php
+#: fabriel-team-manager.php
 msgid "Fabriel Software"
 msgstr ""
 
 #. Author URI of the plugin
-#: fs-team-manager.php
+#: fabriel-team-manager.php
 msgid "https://fabrielsoftware.de/"
 msgstr ""
 

@@ -7,7 +7,7 @@
   "category": "fs-tm-blocks",
   "icon": "calendar-alt",
   "description": "Zeigt Spielplan oder Tabelle einer Mannschaft über ein Widget von fussball.de an.",
-  "textdomain": "fs-team-manager",
+  "textdomain": "fabriel-team-manager",
   "attributes": {
     "team": {
       "type": "string",

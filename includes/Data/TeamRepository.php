@@ -32,7 +32,7 @@ class TeamRepository {
         if (post_type_exists(self::POST_TYPE)) return;
 
         register_post_type(self::POST_TYPE, apply_filters('fs_tm_post_type_args', array(
-            'label'               => __('Mannschaften', 'fs-team-manager'),
+            'label'               => __('Mannschaften', 'fabriel-team-manager'),
             'public'              => false,
             'publicly_queryable'  => false,
             'exclude_from_search' => true,
@@ -74,7 +74,7 @@ class TeamRepository {
         $periods = array();
         if (!empty($data['id_matches']) || !empty($data['id_table'])) {
             $periods[] = array(
-                'label'           => __('Standard-Zeitraum', 'fs-team-manager'),
+                'label'           => __('Standard-Zeitraum', 'fabriel-team-manager'),
                 'valid_from'      => '2020-01-01',
                 'valid_to'        => '',
                 'id_matches'      => $data['id_matches'] ?? '',
@@ -94,12 +94,12 @@ class TeamRepository {
         $current_year = intval(current_time('Y'));
         return array(
             'senioren-1' => array(
-                'name'    => __('1. Mannschaft', 'fs-team-manager'),
+                'name'    => __('1. Mannschaft', 'fabriel-team-manager'),
                 'page_id' => 0,
                 'periods' => array(
                     array(
                         /* translators: 1: start year, 2: end year */
-                        'label'           => sprintf(__('Zeitraum %1$d/%2$d', 'fs-team-manager'), $current_year, $current_year + 1),
+                        'label'           => sprintf(__('Zeitraum %1$d/%2$d', 'fabriel-team-manager'), $current_year, $current_year + 1),
                         'valid_from'      => $current_year . '-07-01',
                         'valid_to'        => ($current_year + 1) . '-06-30',
                         'id_matches'      => '',
@@ -229,7 +229,7 @@ class TeamRepository {
      */
     public static function saveTeam($slug, $data) {
         $slug = sanitize_key($slug);
-        if (empty($slug)) return new \WP_Error('fs_tm_invalid_slug', __('Ungültiges Kürzel.', 'fs-team-manager'));
+        if (empty($slug)) return new \WP_Error('fs_tm_invalid_slug', __('Ungültiges Kürzel.', 'fabriel-team-manager'));
 
         $post_id  = self::getPostIdBySlug($slug);
         $is_new   = empty($post_id);
@@ -380,7 +380,7 @@ class TeamRepository {
         if (!empty($data['periods']) && is_array($data['periods'])) {
             foreach ($data['periods'] as $p_idx => $p) {
                 /* translators: %d: sequential number of the period */
-                $p_label   = !empty($p['label']) ? sanitize_text_field($p['label']) : sprintf(__('Zeitraum %d', 'fs-team-manager'), $p_idx + 1);
+                $p_label   = !empty($p['label']) ? sanitize_text_field($p['label']) : sprintf(__('Zeitraum %d', 'fabriel-team-manager'), $p_idx + 1);
                 $p_from    = !empty($p['valid_from']) && preg_match('/^\d{4}-\d{2}-\d{2}$/', trim($p['valid_from'])) ? trim($p['valid_from']) : '';
                 $p_to      = !empty($p['valid_to']) && preg_match('/^\d{4}-\d{2}-\d{2}$/', trim($p['valid_to'])) ? trim($p['valid_to']) : '';
                 $p_matches = !empty($p['id_matches']) ? trim(sanitize_text_field($p['id_matches'])) : '';
@@ -389,11 +389,11 @@ class TeamRepository {
 
                 if (!empty($p_matches) && !self::isValidUuid($p_matches)) {
                     /* translators: 1: period label, 2: entered value */
-                    $errors[] = sprintf(__('Ungültige Spielplan-ID im Zeitraum „%1$s“ (%2$s).', 'fs-team-manager'), $p_label, $p_matches);
+                    $errors[] = sprintf(__('Ungültige Spielplan-ID im Zeitraum „%1$s“ (%2$s).', 'fabriel-team-manager'), $p_label, $p_matches);
                 }
                 if (!empty($p_table) && !self::isValidUuid($p_table)) {
                     /* translators: 1: period label, 2: entered value */
-                    $errors[] = sprintf(__('Ungültige Tabellen-ID im Zeitraum „%1$s“ (%2$s).', 'fs-team-manager'), $p_label, $p_table);
+                    $errors[] = sprintf(__('Ungültige Tabellen-ID im Zeitraum „%1$s“ (%2$s).', 'fabriel-team-manager'), $p_label, $p_table);
                 }
 
                 if (!empty($p_from) || !empty($p_matches) || !empty($p_table)) {
@@ -428,10 +428,10 @@ class TeamRepository {
 
             if (empty($curr['valid_to'])) {
                 /* translators: 1: earlier period label, 2: following period label */
-                $errors[] = sprintf(__('Zeitraum „%1$s“ benötigt ein Enddatum, da danach „%2$s“ folgt.', 'fs-team-manager'), $curr['label'], $next['label']);
+                $errors[] = sprintf(__('Zeitraum „%1$s“ benötigt ein Enddatum, da danach „%2$s“ folgt.', 'fabriel-team-manager'), $curr['label'], $next['label']);
             } elseif ($curr['valid_to'] >= $next['valid_from']) {
                 /* translators: 1: earlier period label, 2: its end date, 3: following period label, 4: its start date */
-                $errors[] = sprintf(__('Überlappung: „%1$s“ (bis %2$s) überschneidet sich mit „%3$s“ (ab %4$s).', 'fs-team-manager'), $curr['label'], $curr['valid_to'], $next['label'], $next['valid_from']);
+                $errors[] = sprintf(__('Überlappung: „%1$s“ (bis %2$s) überschneidet sich mit „%3$s“ (ab %4$s).', 'fabriel-team-manager'), $curr['label'], $curr['valid_to'], $next['label'], $next['valid_from']);
             }
         }
     }
@@ -535,7 +535,7 @@ class TeamRepository {
         if ($target_date === null) $target_date = current_time('Y-m-d');
         $periods = !empty($team['periods']) && is_array($team['periods']) ? $team['periods'] : array();
         if (empty($periods)) {
-            return array('id_matches' => '', 'id_table' => '', 'is_club_matches' => false, 'period_label' => __('Kein Zeitraum', 'fs-team-manager'), 'is_fallback' => false);
+            return array('id_matches' => '', 'id_table' => '', 'is_club_matches' => false, 'period_label' => __('Kein Zeitraum', 'fabriel-team-manager'), 'is_fallback' => false);
         }
 
         $resolved = self::resolvePeriodIndex($periods, $target_date);
@@ -545,7 +545,7 @@ class TeamRepository {
             'id_matches'      => $p['id_matches'] ?? '',
             'id_table'        => $p['id_table'] ?? '',
             'is_club_matches' => !empty($p['is_club_matches']),
-            'period_label'    => $p['label'] ?? __('Aktueller Zeitraum', 'fs-team-manager'),
+            'period_label'    => $p['label'] ?? __('Aktueller Zeitraum', 'fabriel-team-manager'),
             'is_fallback'     => $resolved['is_fallback'],
         );
     }

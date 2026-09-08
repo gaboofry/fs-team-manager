@@ -13,7 +13,7 @@ class BlockRegistrar {
     }
 
     public static function addCategory($categories, $block_editor_context = null) {
-        return array_merge(array(array('slug' => 'fs-tm-blocks', 'title' => '⚽ Fabriel Software Team-Manager')), $categories);
+        return array_merge(array(array('slug' => 'fs-tm-blocks', 'title' => '⚽ Fabriel Team Manager')), $categories);
     }
 
     /**
@@ -115,11 +115,11 @@ class BlockRegistrar {
             // Zeichenketten, die das Skript selbst erzeugt (Ladeanzeige und
             // der nach einem Widerruf neu aufgebaute Hinweis).
             'i18n'             => array(
-                'loading'             => __('Inhalte werden geladen …', 'fs-team-manager'),
-                'consentText'         => __('An dieser Stelle wird ein Inhalt des externen Anbieters fussball.de eingebunden. Beim Laden werden Daten – unter anderem Ihre IP-Adresse – an den Anbieter übertragen.', 'fs-team-manager'),
-                'consentRemember'     => __('Auswahl für diesen Browser merken', 'fs-team-manager'),
-                'consentButton'       => __('Inhalt laden', 'fs-team-manager'),
-                'consentProviderLink' => __('Zur Website des Anbieters', 'fs-team-manager'),
+                'loading'             => __('Inhalte werden geladen …', 'fabriel-team-manager'),
+                'consentText'         => __('An dieser Stelle wird ein Inhalt des externen Anbieters fussball.de eingebunden. Beim Laden werden Daten – unter anderem Ihre IP-Adresse – an den Anbieter übertragen.', 'fabriel-team-manager'),
+                'consentRemember'     => __('Auswahl für diesen Browser merken', 'fabriel-team-manager'),
+                'consentButton'       => __('Inhalt laden', 'fabriel-team-manager'),
+                'consentProviderLink' => __('Zur Website des Anbieters', 'fabriel-team-manager'),
             ),
         ));
     }
@@ -143,7 +143,7 @@ class BlockRegistrar {
         $asset      = file_exists($asset_file) ? require $asset_file : array('dependencies' => array(), 'version' => FS_TM_VERSION);
 
         wp_register_script($handle, FS_TM_URL . 'build/design.js', $asset['dependencies'], $asset['version'], true);
-        wp_set_script_translations($handle, 'fs-team-manager', FS_TM_PATH . 'languages');
+        wp_set_script_translations($handle, 'fabriel-team-manager', FS_TM_PATH . 'languages');
         wp_localize_script($handle, 'fsTmDesignData', array(
             'central' => Scheme::central(),
             'presets' => Scheme::presets(),
@@ -156,7 +156,7 @@ class BlockRegistrar {
 
         $teams = TeamRepository::getSavedTeams();
         $teams_data = array();
-        $options = array(array('label' => '⚡ ' . __('Automatisch (anhand Seite)', 'fs-team-manager'), 'value' => 'auto', 'cleanName' => __('Automatisch (aktuelle Seite)', 'fs-team-manager')));
+        $options = array(array('label' => '⚡ ' . __('Automatisch (anhand Seite)', 'fabriel-team-manager'), 'value' => 'auto', 'cleanName' => __('Automatisch (aktuelle Seite)', 'fabriel-team-manager')));
         
         foreach ($teams as $slug => $data) {
             $options[] = array('label' => '👉 ' . $data['name'], 'value' => $slug, 'cleanName' => $data['name']);
@@ -172,13 +172,13 @@ class BlockRegistrar {
             register_block_type($widget_meta, array(
                 'render_callback' => array(__CLASS__, 'renderSingleWidget')
             ));
-            wp_set_script_translations('fstm-fussball-widget-editor-script', 'fs-team-manager', FS_TM_PATH . 'languages');
+            wp_set_script_translations('fstm-fussball-widget-editor-script', 'fabriel-team-manager', FS_TM_PATH . 'languages');
             wp_localize_script('fstm-fussball-widget-editor-script', 'fsTmBlockData', apply_filters('fs_tm_block_editor_data', array(
                 'teamOptions' => $options,
                 'teamsData'   => $teams_data,
                 'viewOptions' => array(
-                    array('label' => '📅 ' . __('Spielplan', 'fs-team-manager'), 'value' => 'matches'),
-                    array('label' => '🏆 ' . __('Tabelle', 'fs-team-manager'), 'value' => 'table')
+                    array('label' => '📅 ' . __('Spielplan', 'fabriel-team-manager'), 'value' => 'matches'),
+                    array('label' => '🏆 ' . __('Tabelle', 'fabriel-team-manager'), 'value' => 'table')
                 )
             ), $teams));
         }
@@ -189,7 +189,7 @@ class BlockRegistrar {
             register_block_type($overview_meta, array(
                 'render_callback' => array(__CLASS__, 'renderTablesOverview')
             ));
-            wp_set_script_translations('fstm-fussball-tables-overview-editor-script', 'fs-team-manager', FS_TM_PATH . 'languages');
+            wp_set_script_translations('fstm-fussball-tables-overview-editor-script', 'fabriel-team-manager', FS_TM_PATH . 'languages');
         }
 
         do_action('fs_tm_register_addon_blocks');
@@ -201,10 +201,10 @@ class BlockRegistrar {
      */
     private static function renderWidgetSlot($widget_id, $widget_type) {
         if (empty($widget_id)) {
-            return '<p class="fs-tm-no-data">' . esc_html__('Für diesen Zeitraum ist kein Widget hinterlegt.', 'fs-team-manager') . '</p>';
+            return '<p class="fs-tm-no-data">' . esc_html__('Für diesen Zeitraum ist kein Widget hinterlegt.', 'fabriel-team-manager') . '</p>';
         }
         if (!TeamRepository::remoteWidgetsEnabled()) {
-            return '<p class="fs-tm-no-data">' . esc_html__('Das Laden externer Inhalte ist auf dieser Website deaktiviert.', 'fs-team-manager') . '</p>';
+            return '<p class="fs-tm-no-data">' . esc_html__('Das Laden externer Inhalte ist auf dieser Website deaktiviert.', 'fabriel-team-manager') . '</p>';
         }
 
         if (!TeamRepository::clickToLoadEnabled()) {
@@ -233,13 +233,13 @@ class BlockRegistrar {
         );
         $html .= '<div class="fs-tm-consent">';
         $html .= '<span class="fs-tm-consent-icon" aria-hidden="true">🔒</span>';
-        $html .= '<p class="fs-tm-consent-text">' . esc_html__('An dieser Stelle wird ein Inhalt des externen Anbieters fussball.de eingebunden. Beim Laden werden Daten – unter anderem Ihre IP-Adresse – an den Anbieter übertragen.', 'fs-team-manager') . '</p>';
-        $html .= '<label class="fs-tm-consent-remember"><input type="checkbox"> ' . esc_html__('Auswahl für diesen Browser merken', 'fs-team-manager') . '</label>';
-        $html .= '<button type="button" class="fs-tm-consent-btn">' . esc_html__('Inhalt laden', 'fs-team-manager') . '</button>';
+        $html .= '<p class="fs-tm-consent-text">' . esc_html__('An dieser Stelle wird ein Inhalt des externen Anbieters fussball.de eingebunden. Beim Laden werden Daten – unter anderem Ihre IP-Adresse – an den Anbieter übertragen.', 'fabriel-team-manager') . '</p>';
+        $html .= '<label class="fs-tm-consent-remember"><input type="checkbox"> ' . esc_html__('Auswahl für diesen Browser merken', 'fabriel-team-manager') . '</label>';
+        $html .= '<button type="button" class="fs-tm-consent-btn">' . esc_html__('Inhalt laden', 'fabriel-team-manager') . '</button>';
         $html .= sprintf(
             '<a class="fs-tm-consent-link" href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
             esc_url('https://www.fussball.de/'),
-            esc_html__('Zur Website des Anbieters', 'fs-team-manager')
+            esc_html__('Zur Website des Anbieters', 'fabriel-team-manager')
         );
         $html .= '</div></div>';
 
@@ -251,10 +251,10 @@ class BlockRegistrar {
             '<span class="fs-tm-card-note" title="%s">%s</span>',
             esc_attr(sprintf(
                 /* translators: %s: label of the displayed period */
-                __('Für den heutigen Tag ist kein Zeitraum hinterlegt. Angezeigt wird der zuletzt gepflegte Zeitraum: %s', 'fs-team-manager'),
+                __('Für den heutigen Tag ist kein Zeitraum hinterlegt. Angezeigt wird der zuletzt gepflegte Zeitraum: %s', 'fabriel-team-manager'),
                 $period_label
             )),
-            esc_html__('Letzter Zeitraum', 'fs-team-manager')
+            esc_html__('Letzter Zeitraum', 'fabriel-team-manager')
         );
     }
 
@@ -304,11 +304,11 @@ class BlockRegistrar {
 
             $from_fmt = !empty($mp['valid_from']) ? date_i18n('d.m.Y', strtotime($mp['valid_from'])) : '';
             $to_fmt   = !empty($mp['valid_to']) ? date_i18n('d.m.Y', strtotime($mp['valid_to'])) : '';
-            $date_str = ($from_fmt && $to_fmt) ? $from_fmt . ' – ' . $to_fmt : ($from_fmt ? __('Ab', 'fs-team-manager') . ' ' . $from_fmt : '');
+            $date_str = ($from_fmt && $to_fmt) ? $from_fmt . ' – ' . $to_fmt : ($from_fmt ? __('Ab', 'fabriel-team-manager') . ' ' . $from_fmt : '');
 
             $label = $mp['label'];
             if ($target_period_key === 'current' && $is_matching_today) {
-                $label = __('Aktuell', 'fs-team-manager');
+                $label = __('Aktuell', 'fabriel-team-manager');
             } else {
                 if (!empty($date_str)) {
                     $label .= ' (' . $date_str . ')';
@@ -337,7 +337,7 @@ class BlockRegistrar {
         $title_html = $has_page ? sprintf('<a href="%s" class="fs-tm-card-link">%s</a>', esc_url(get_permalink($page_id)), $team_name) : '<span>' . $team_name . '</span>';
 
         $icon       = ($view === 'table') ? '🏆' : '📅';
-        $badge_text = ($view === 'table') ? __('Tabelle', 'fs-team-manager') : __('Spielplan', 'fs-team-manager');
+        $badge_text = ($view === 'table') ? __('Tabelle', 'fabriel-team-manager') : __('Spielplan', 'fabriel-team-manager');
 
         $show_team_name = (bool) ($attributes['showTeamName'] ?? true);
 
@@ -356,7 +356,7 @@ class BlockRegistrar {
         $output .= '    <div class="fs-tm-card-header-right">';
 
         if (count($available_items) > 1) {
-            $output .= '<div class="fs-tm-period-select-wrap"><select class="fs-tm-period-select" aria-label="' . esc_attr__('Zeitraum auswählen', 'fs-team-manager') . '">';
+            $output .= '<div class="fs-tm-period-select-wrap"><select class="fs-tm-period-select" aria-label="' . esc_attr__('Zeitraum auswählen', 'fabriel-team-manager') . '">';
             foreach ($available_items as $item) {
                 $output .= sprintf('<option value="%s"%s>%s</option>', esc_attr($item['key']), selected($item['is_active'], true, false), esc_html($item['label']));
             }

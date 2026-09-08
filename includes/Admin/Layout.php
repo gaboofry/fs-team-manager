@@ -23,8 +23,8 @@ class Layout {
      */
     public static function pages() {
         return apply_filters('fs_tm_admin_pages', array(
-            'fs-tm-manager'  => array('icon' => '⚽',  'label' => __('Teams & Widgets', 'fs-team-manager')),
-            'fs-tm-settings' => array('icon' => '⚙️', 'label' => __('Einstellungen', 'fs-team-manager')),
+            'fs-tm-manager'  => array('icon' => '⚽',  'label' => __('Teams & Widgets', 'fabriel-team-manager')),
+            'fs-tm-settings' => array('icon' => '⚙️', 'label' => __('Einstellungen', 'fabriel-team-manager')),
         ));
     }
 
@@ -52,7 +52,7 @@ class Layout {
     public static function bar($current_slug) {
         ?>
         <div class="fs-tm-bar">
-            <a href="https://fabrielsoftware.de/" target="_blank" rel="noopener noreferrer" class="fs-tm-brand" title="<?php esc_attr_e('Zu fabrielsoftware.de', 'fs-team-manager'); ?>">
+            <a href="https://fabrielsoftware.de/" target="_blank" rel="noopener noreferrer" class="fs-tm-brand" title="<?php esc_attr_e('Zu fabrielsoftware.de', 'fabriel-team-manager'); ?>">
                 <span class="fs-tm-brand-mark" aria-hidden="true">
                     <?php echo wp_kses(TeamRepository::getSvgIcon(), TeamRepository::allowedSvgTags()); ?>
                 </span>
@@ -62,7 +62,7 @@ class Layout {
                 </span>
             </a>
 
-            <nav class="fs-tm-tabs" aria-label="<?php esc_attr_e('Bereiche des Team-Managers', 'fs-team-manager'); ?>">
+            <nav class="fs-tm-tabs" aria-label="<?php esc_attr_e('Bereiche des Team-Managers', 'fabriel-team-manager'); ?>">
                 <?php foreach (self::pages() as $slug => $page): ?>
                     <a href="<?php echo esc_url(self::url($slug)); ?>"
                        class="fs-tm-tab<?php echo $slug === $current_slug ? ' is-active' : ''; ?>"
@@ -75,9 +75,9 @@ class Layout {
 
             <div class="fs-tm-bar-actions">
                 <?php do_action('fs_tm_admin_header_actions'); ?>
-                <a href="mailto:support-tmc@fabrielsoftware.de" class="fs-tm-bar-support" title="<?php esc_attr_e('Support per E-Mail', 'fs-team-manager'); ?>">
+                <a href="mailto:support-tmc@fabrielsoftware.de" class="fs-tm-bar-support" title="<?php esc_attr_e('Support per E-Mail', 'fabriel-team-manager'); ?>">
                     <span class="dashicons dashicons-email-alt" aria-hidden="true"></span>
-                    <span class="fs-tm-bar-support-text"><?php esc_html_e('Support', 'fs-team-manager'); ?></span>
+                    <span class="fs-tm-bar-support-text"><?php esc_html_e('Support', 'fabriel-team-manager'); ?></span>
                 </a>
             </div>
         </div>
@@ -92,8 +92,8 @@ class Layout {
     public static function footer() {
         ?>
         <div class="fs-tm-footer-row">
-            <span><?php esc_html_e('Entwickelt von', 'fs-team-manager'); ?> <a href="https://fabrielsoftware.de/" target="_blank" rel="noopener noreferrer">Fabriel Software</a></span>
-            <span>&bull; <a href="https://paypal.me/fabergab" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Spenden', 'fs-team-manager'); ?></a></span>
+            <span><?php esc_html_e('Entwickelt von', 'fabriel-team-manager'); ?> <a href="https://fabrielsoftware.de/" target="_blank" rel="noopener noreferrer">Fabriel Software</a></span>
+            <span>&bull; <a href="https://paypal.me/fabergab" target="_blank" rel="noopener noreferrer"><?php esc_html_e('Spenden', 'fabriel-team-manager'); ?></a></span>
             <span>&bull; <a href="mailto:support-tmc@fabrielsoftware.de">support-tmc@fabrielsoftware.de</a></span>
             <?php do_action('fs_tm_admin_footer_links'); ?>
         </div>
@@ -101,10 +101,10 @@ class Layout {
     }
 
     public static function collapsibleOpen($id, $icon, $title, array $args = array()) {
-        $args = array_merge(array('collapsed' => true, 'hint' => __('Klicken zum Öffnen', 'fs-team-manager')), $args);
+        $args = array_merge(array('collapsed' => true, 'hint' => __('Klicken zum Öffnen', 'fabriel-team-manager')), $args);
         ?>
         <div class="postbox fs-tm-box fs-tm-collapsible-box <?php echo $args['collapsed'] ? 'is-collapsed' : 'is-expanded'; ?>" id="<?php echo esc_attr($id); ?>">
-            <div class="fs-tm-collapsible-header" title="<?php esc_attr_e('Klicken zum Auf-/Zuklappen', 'fs-team-manager'); ?>">
+            <div class="fs-tm-collapsible-header" title="<?php esc_attr_e('Klicken zum Auf-/Zuklappen', 'fabriel-team-manager'); ?>">
                 <div class="fs-tm-collapsible-title">
                     <span class="dashicons dashicons-arrow-down-alt2 fs-tm-accordion-arrow"></span>
                     <h2><?php echo esc_html(trim($icon . ' ' . $title)); ?></h2>

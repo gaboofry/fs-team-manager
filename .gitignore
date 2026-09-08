@@ -5,6 +5,7 @@ vendor/
 # Build artifacts
 *.zip
 fs-team-manager.zip
+fabriel-team-manager.zip
 
 # Development aids (never enter the repository)
 codebase_dump.txt

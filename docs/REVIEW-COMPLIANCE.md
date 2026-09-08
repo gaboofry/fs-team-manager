@@ -1,4 +1,4 @@
-# WordPress.org Review — Umsetzungsstand (CORE-Plugin `fs-team-manager`)
+# WordPress.org Review — Umsetzungsstand (CORE-Plugin `fabriel-team-manager`)
 
 Dieses Dokument beschreibt, **was tatsächlich im Code umgesetzt ist**, um die
 Beanstandungen der automatischen Vorprüfung des WordPress.org-Plugin-Review-Teams
@@ -33,7 +33,7 @@ menschenlesbaren Quellen und das Build-Werkzeug öffentlich zugänglich waren.
 | `webpack.config.js` → `SourceHeaderPlugin` | Stellt jeder erzeugten `.js`/`.css`-Datei **nach** der Minifizierung einen Kommentar voran, der Quelldatei, Rebuild-Befehl und Repository nennt. |
 | `src/**/*.js` | Jede Einstiegsdatei nennt im Kopf die erzeugte Zieldatei und den Build-Befehl. |
 | `readme.txt` → `== Source code & development ==` | Zuordnung Build-Datei → Quelldatei, Repository-URL, Klon-/Build-Befehle, Hinweis, dass keine Fremdbibliotheken gebündelt werden. |
-| `fs-team-manager.php` | Plugin-Header verweist auf Quellcode-Repository und Build-Werkzeug; `Plugin URI` zeigt auf den Internetauftritt. |
+| `fabriel-team-manager.php` | Plugin-Header verweist auf Quellcode-Repository und Build-Werkzeug; `Plugin URI` zeigt auf den Internetauftritt. |
 | `composer.json` | `homepage` sowie `support.source` / `support.issues` gepflegt. |
 
 Der Build ist reproduzierbar: `npm ci && npm run build` erzeugt `build/`

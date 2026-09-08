@@ -149,16 +149,16 @@ export function previewStyle(attributes = {}) {
    -------------------------------------------------------------------------- */
 
 const schemeOptions = () => [
-    { value: '', label: __('Zentrales Design', 'fs-team-manager') },
-    { value: 'light', label: __('Hell', 'fs-team-manager') },
-    { value: 'dark', label: __('Dunkel', 'fs-team-manager') },
-    { value: 'custom', label: __('Eigene Farben', 'fs-team-manager') },
+    { value: '', label: __('Zentrales Design', 'fabriel-team-manager') },
+    { value: 'light', label: __('Hell', 'fabriel-team-manager') },
+    { value: 'dark', label: __('Dunkel', 'fabriel-team-manager') },
+    { value: 'custom', label: __('Eigene Farben', 'fabriel-team-manager') },
 ];
 
 const schemeHelp = () =>
     __(
         'Schrift-, Linien- und Plakettenfarben werden aus den Flächen berechnet und bleiben dadurch immer lesbar.',
-        'fs-team-manager'
+        'fabriel-team-manager'
     );
 
 /**
@@ -190,9 +190,9 @@ export function SchemePanel({ attributes = {}, setAttributes, title, initialOpen
     };
 
     return (
-        <PanelBody title={title || __('Farben', 'fs-team-manager')} initialOpen={initialOpen}>
+        <PanelBody title={title || __('Farben', 'fabriel-team-manager')} initialOpen={initialOpen}>
             <SelectControl
-                label={__('Farbschema', 'fs-team-manager')}
+                label={__('Farbschema', 'fabriel-team-manager')}
                 help={schemeHelp()}
                 value={showColors && scheme !== 'custom' ? 'custom' : scheme}
                 options={schemeOptions()}
@@ -203,23 +203,23 @@ export function SchemePanel({ attributes = {}, setAttributes, title, initialOpen
                 <>
                     <PanelColorSettings
                         className="fs-tm-editor-colors"
-                        title={__('Flächen', 'fs-team-manager')}
+                        title={__('Flächen', 'fabriel-team-manager')}
                         initialOpen
                         colorSettings={[
                             {
                                 value: attributes.backgroundColor || '',
                                 onChange: (val) => setAttributes({ backgroundColor: val || '' }),
-                                label: __('Kartenkopf', 'fs-team-manager'),
+                                label: __('Kartenkopf', 'fabriel-team-manager'),
                             },
                             {
                                 value: attributes.bodyBackgroundColor || '',
                                 onChange: (val) => setAttributes({ bodyBackgroundColor: val || '' }),
-                                label: __('Inhaltsfläche', 'fs-team-manager'),
+                                label: __('Inhaltsfläche', 'fabriel-team-manager'),
                             },
                             {
                                 value: attributes.textColor || '',
                                 onChange: (val) => setAttributes({ textColor: val || '' }),
-                                label: __('Schrift im Kartenkopf (optional)', 'fs-team-manager'),
+                                label: __('Schrift im Kartenkopf (optional)', 'fabriel-team-manager'),
                             },
                         ]}
                     />
@@ -228,7 +228,7 @@ export function SchemePanel({ attributes = {}, setAttributes, title, initialOpen
                         <Notice status="warning" isDismissible={false}>
                             {__(
                                 'Diese Schriftfarbe ist auf dem gewählten Kartenkopf schwer lesbar. Feld leeren, dann wird eine lesbare Farbe berechnet.',
-                                'fs-team-manager'
+                                'fabriel-team-manager'
                             )}
                         </Notice>
                     )}

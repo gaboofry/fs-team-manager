@@ -12,18 +12,18 @@ export default function Edit({ attributes, setAttributes }) {
     const SchemePanel = design.SchemePanel;
 
     const teamOptions = (window.fsTmBlockData && window.fsTmBlockData.teamOptions) || [
-        { label: '⚡ ' + __('Automatisch (anhand Seite)', 'fs-team-manager'), value: 'auto' }
+        { label: '⚡ ' + __('Automatisch (anhand Seite)', 'fabriel-team-manager'), value: 'auto' }
     ];
 
     const teamsData = (window.fsTmBlockData && window.fsTmBlockData.teamsData) || {};
 
     const viewOptions = (window.fsTmBlockData && window.fsTmBlockData.viewOptions) || [
-        { label: '📅 ' + __('Spielplan', 'fs-team-manager'), value: 'matches' },
-        { label: '🏆 ' + __('Tabelle', 'fs-team-manager'), value: 'table' }
+        { label: '📅 ' + __('Spielplan', 'fabriel-team-manager'), value: 'matches' },
+        { label: '🏆 ' + __('Tabelle', 'fabriel-team-manager'), value: 'table' }
     ];
 
     function getMergedPeriodOptions(teamSlug, viewVal) {
-        const options = [{ label: '🌟 ' + __('Immer aktuell (Datum)', 'fs-team-manager'), value: 'current' }];
+        const options = [{ label: '🌟 ' + __('Immer aktuell (Datum)', 'fabriel-team-manager'), value: 'current' }];
         if (!teamSlug || teamSlug === 'auto' || !teamsData[teamSlug]) return options;
 
         const periods = teamsData[teamSlug].periods || [];
@@ -34,7 +34,7 @@ export default function Edit({ attributes, setAttributes }) {
             if (uuid) {
                 filtered.push({
                     orig_idx: i,
-                    label: p.label || __('Zeitraum', 'fs-team-manager') + ' ' + (i + 1),
+                    label: p.label || __('Zeitraum', 'fabriel-team-manager') + ' ' + (i + 1),
                     valid_from: p.valid_from || '',
                     valid_to: p.valid_to || '',
                     uuid
@@ -71,7 +71,7 @@ export default function Edit({ attributes, setAttributes }) {
 
     const periodOptions = getMergedPeriodOptions(team, view);
 
-    let selectedLabel = __('Automatisch (aktuelle Seite)', 'fs-team-manager');
+    let selectedLabel = __('Automatisch (aktuelle Seite)', 'fabriel-team-manager');
     const matched = teamOptions.find((t) => t.value === team);
     if (matched) selectedLabel = matched.cleanName || matched.label;
 
@@ -86,36 +86,36 @@ export default function Edit({ attributes, setAttributes }) {
         }
     });
 
-    const viewLabel = view === 'table' ? '🏆 ' + __('Tabelle', 'fs-team-manager') : '📅 ' + __('Spielplan', 'fs-team-manager');
+    const viewLabel = view === 'table' ? '🏆 ' + __('Tabelle', 'fabriel-team-manager') : '📅 ' + __('Spielplan', 'fabriel-team-manager');
 
     return (
         <>
             <InspectorControls>
-                <PanelBody title={__('Einstellungen', 'fs-team-manager')} initialOpen={true}>
+                <PanelBody title={__('Einstellungen', 'fabriel-team-manager')} initialOpen={true}>
                     <SelectControl
-                        label={__('Mannschaft auswählen:', 'fs-team-manager')}
-                        help={__('Wähle ein festes Team oder die automatische Erkennung anhand der aktuellen Seite.', 'fs-team-manager')}
+                        label={__('Mannschaft auswählen:', 'fabriel-team-manager')}
+                        help={__('Wähle ein festes Team oder die automatische Erkennung anhand der aktuellen Seite.', 'fabriel-team-manager')}
                         value={team}
                         options={teamOptions}
                         onChange={(val) => setAttributes({ team: val, period: 'current' })}
                     />
                     <SelectControl
-                        label={__('Ansicht:', 'fs-team-manager')}
-                        help={__('Bestimmt, ob der Spielplan oder die Ligatabelle geladen werden soll.', 'fs-team-manager')}
+                        label={__('Ansicht:', 'fabriel-team-manager')}
+                        help={__('Bestimmt, ob der Spielplan oder die Ligatabelle geladen werden soll.', 'fabriel-team-manager')}
                         value={view}
                         options={viewOptions}
                         onChange={(val) => setAttributes({ view: val, period: 'current' })}
                     />
                     <SelectControl
-                        label={__('Start-Zeitraum:', 'fs-team-manager')}
-                        help={__('Immer aktuell wählt automatisch den passenden Zeitraum anhand des Datums.', 'fs-team-manager')}
+                        label={__('Start-Zeitraum:', 'fabriel-team-manager')}
+                        help={__('Immer aktuell wählt automatisch den passenden Zeitraum anhand des Datums.', 'fabriel-team-manager')}
                         value={period}
                         options={periodOptions}
                         onChange={(val) => setAttributes({ period: val })}
                     />
                     <ToggleControl
-                        label={__('Mannschaftsnamen übernehmen', 'fs-team-manager')}
-                        help={__('Bestimmt, ob der Mannschaftsname im Widget-Kartenheader im Frontend angezeigt wird.', 'fs-team-manager')}
+                        label={__('Mannschaftsnamen übernehmen', 'fabriel-team-manager')}
+                        help={__('Bestimmt, ob der Mannschaftsname im Widget-Kartenheader im Frontend angezeigt wird.', 'fabriel-team-manager')}
                         checked={showTeamName}
                         onChange={(val) => setAttributes({ showTeamName: val })}
                     />
@@ -129,7 +129,7 @@ export default function Edit({ attributes, setAttributes }) {
                     Fabriel Software Widget
                 </div>
                 <div style={{ padding: '18px 20px', background: 'var(--fs-tm-card-body-bg)', color: 'var(--fs-tm-body-ink)', textAlign: 'center', fontSize: '13px' }}>
-                    <strong style={{ display: 'block', marginBottom: '4px' }}>{__('Mannschaft:', 'fs-team-manager')} {selectedLabel}</strong>
+                    <strong style={{ display: 'block', marginBottom: '4px' }}>{__('Mannschaft:', 'fabriel-team-manager')} {selectedLabel}</strong>
                     <span style={{ color: 'var(--fs-tm-body-ink-soft)', fontSize: '12px' }}>({viewLabel})</span>
                 </div>
             </div>

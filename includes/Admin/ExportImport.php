@@ -11,7 +11,7 @@ class ExportImport {
 
     public static function handleExport() {
         if (!check_admin_referer('fs_tm_export_teams_action', 'fs_tm_export_teams_nonce')) {
-            wp_die(esc_html__('Keine Berechtigung.', 'fs-team-manager'));
+            wp_die(esc_html__('Keine Berechtigung.', 'fabriel-team-manager'));
         }
         $teams = TeamRepository::exportTeams();
         $flags = JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE;
@@ -37,7 +37,7 @@ class ExportImport {
      */
     public static function handleRestore() {
         if (!check_admin_referer('fs_tm_restore_backup_action', 'fs_tm_restore_nonce')) {
-            wp_die(esc_html__('Keine Berechtigung.', 'fs-team-manager'));
+            wp_die(esc_html__('Keine Berechtigung.', 'fabriel-team-manager'));
         }
         $restore_point = get_option(self::RESTORE_OPTION, null);
         if (!is_array($restore_point)) {
@@ -241,7 +241,7 @@ class ExportImport {
 
     public static function handleImport() {
         if (!check_admin_referer('fs_tm_import_teams_action', 'fs_tm_import_teams_nonce')) {
-            wp_die(esc_html__('Keine Berechtigung.', 'fs-team-manager'));
+            wp_die(esc_html__('Keine Berechtigung.', 'fabriel-team-manager'));
         }
 
         $data = self::readUploadedJson();

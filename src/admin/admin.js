@@ -4,7 +4,7 @@
  * Human-readable source of build/admin.js.
  * Compile with: npm ci && npm run build
  *
- * @package   fs-team-manager
+ * @package   fabriel-team-manager
  * @author    Fabriel Software (https://fabrielsoftware.de/)
  * @copyright Fabriel Software
  * @license   https://www.gnu.org/licenses/gpl-2.0.html GPL-2.0-or-later
@@ -46,8 +46,8 @@ import { __, sprintf } from '@wordpress/i18n';
     function showToast(message, type) {
         type = type || 'warning';
         var titlePrefix = type === 'error'
-            ? __('Fehler:', 'fs-team-manager')
-            : (type === 'success' ? __('Erfolg:', 'fs-team-manager') : __('Hinweis:', 'fs-team-manager'));
+            ? __('Fehler:', 'fabriel-team-manager')
+            : (type === 'success' ? __('Erfolg:', 'fabriel-team-manager') : __('Hinweis:', 'fabriel-team-manager'));
 
         var $toast = $('<div class="notice fs-tm-notice fs-tm-toast"></div>').addClass('notice-' + type);
         $toast.append($('<p></p>').append($('<strong></strong>').text(titlePrefix)).append(document.createTextNode(' ' + message)));
@@ -295,13 +295,13 @@ import { __, sprintf } from '@wordpress/i18n';
                 $input.addClass('fs-tm-input-error');
                 hasError = true;
                 if (!firstErrorMsg) {
-                    var label = $input.closest('.fs-tm-period-card').find('.period-label-input').val() || __('Zeitraum', 'fs-team-manager');
+                    var label = $input.closest('.fs-tm-period-card').find('.period-label-input').val() || __('Zeitraum', 'fabriel-team-manager');
                     var isMatches = $input.attr('name').indexOf('id_matches') > -1;
                     firstErrorMsg = isMatches
                         /* translators: 1: period label, 2: entered value */
-                        ? sprintf(__('Ungültige Spielplan-ID im Zeitraum „%1$s“ (%2$s).', 'fs-team-manager'), label, val)
+                        ? sprintf(__('Ungültige Spielplan-ID im Zeitraum „%1$s“ (%2$s).', 'fabriel-team-manager'), label, val)
                         /* translators: 1: period label, 2: entered value */
-                        : sprintf(__('Ungültige Tabellen-ID im Zeitraum „%1$s“ (%2$s).', 'fs-team-manager'), label, val);
+                        : sprintf(__('Ungültige Tabellen-ID im Zeitraum „%1$s“ (%2$s).', 'fabriel-team-manager'), label, val);
                 }
             } else {
                 $input.removeClass('fs-tm-input-error');
@@ -325,7 +325,7 @@ import { __, sprintf } from '@wordpress/i18n';
                     $el: $card,
                     from: from,
                     to: to,
-                    label: $card.find('.period-label-input').val() || __('Unbenannter Zeitraum', 'fs-team-manager')
+                    label: $card.find('.period-label-input').val() || __('Unbenannter Zeitraum', 'fabriel-team-manager')
                 });
             }
         });
@@ -343,20 +343,20 @@ import { __, sprintf } from '@wordpress/i18n';
                 next.$el.addClass('has-conflict');
                 hasConflict = true;
                 /* translators: 1: earlier period label, 2: following period label */
-                if (!firstErrorMsg) firstErrorMsg = sprintf(__('„%1$s“ hat kein Enddatum, obwohl danach „%2$s“ folgt.', 'fs-team-manager'), curr.label, next.label);
+                if (!firstErrorMsg) firstErrorMsg = sprintf(__('„%1$s“ hat kein Enddatum, obwohl danach „%2$s“ folgt.', 'fabriel-team-manager'), curr.label, next.label);
             } else if (curr.to >= next.from) {
                 curr.$el.addClass('has-conflict');
                 next.$el.addClass('has-conflict');
                 hasConflict = true;
                 /* translators: 1: earlier period label, 2: its end date, 3: following period label, 4: its start date */
-                if (!firstErrorMsg) firstErrorMsg = sprintf(__('Überlappung: „%1$s“ (bis %2$s) überschneidet sich mit „%3$s“ (ab %4$s).', 'fs-team-manager'), curr.label, curr.to, next.label, next.from);
+                if (!firstErrorMsg) firstErrorMsg = sprintf(__('Überlappung: „%1$s“ (bis %2$s) überschneidet sich mit „%3$s“ (ab %4$s).', 'fabriel-team-manager'), curr.label, curr.to, next.label, next.from);
             }
         }
 
         if (hasConflict) {
             $cards.filter('.has-conflict').each(function() { 
                 if ($(this).find('.fs-tm-conflict-badge').length === 0) {
-                    $(this).find('.fs-tm-period-card-badges').prepend($('<span class="fs-tm-conflict-badge"></span>').text('⚠️ ' + __('Zeitüberlappung', 'fs-team-manager')));
+                    $(this).find('.fs-tm-period-card-badges').prepend($('<span class="fs-tm-conflict-badge"></span>').text('⚠️ ' + __('Zeitüberlappung', 'fabriel-team-manager')));
                 }
             });
             if (triggerToast) showToast(firstErrorMsg, 'error');
@@ -464,7 +464,7 @@ import { __, sprintf } from '@wordpress/i18n';
                         order: order
                     }, function(res) {
                         if (res.success) {
-                            showToast(__('Reihenfolge der Mannschaften aktualisiert!', 'fs-team-manager'), 'success');
+                            showToast(__('Reihenfolge der Mannschaften aktualisiert!', 'fabriel-team-manager'), 'success');
                         }
                     });
                 }
@@ -504,10 +504,10 @@ import { __, sprintf } from '@wordpress/i18n';
             } else {
                 var $dirtyCard = $('.fs-tm-team-card.has-unsaved-changes').not($card);
                 if ($dirtyCard.length) {
-                    var dirtyName = $dirtyCard.find('.fs-tm-team-title-text').text() || __('einer Mannschaft', 'fs-team-manager');
+                    var dirtyName = $dirtyCard.find('.fs-tm-team-title-text').text() || __('einer Mannschaft', 'fabriel-team-manager');
                     var confirmMsg = sprintf(
                         /* translators: %s: team name */
-                        __('Achtung: Sie haben ungespeicherte Änderungen in „%s“.\n\nWenn Sie zu einer anderen Mannschaft wechseln, werden diese Änderungen verworfen.\n\nMöchten Sie fortfahren und die Änderungen verwerfen?', 'fs-team-manager'),
+                        __('Achtung: Sie haben ungespeicherte Änderungen in „%s“.\n\nWenn Sie zu einer anderen Mannschaft wechseln, werden diese Änderungen verworfen.\n\nMöchten Sie fortfahren und die Änderungen verwerfen?', 'fabriel-team-manager'),
                         dirtyName
                     );
                     if (!confirm(confirmMsg)) {
@@ -524,7 +524,7 @@ import { __, sprintf } from '@wordpress/i18n';
                 var isLoaded = $body.attr('data-loaded') === '1';
                 if (!isLoaded) {
                     $card.removeClass('is-collapsed').addClass('is-expanded');
-                    $body.html('<div class="fs-tm-loading-spinner"><span class="spinner is-active"></span> ' + __('Teamdaten werden geladen …', 'fs-team-manager') + '</div>').slideDown(180);
+                    $body.html('<div class="fs-tm-loading-spinner"><span class="spinner is-active"></span> ' + __('Teamdaten werden geladen …', 'fabriel-team-manager') + '</div>').slideDown(180);
 
                     $.post(fsTmAdminData.ajaxUrl, {
                         action: 'fs_tm_get_team_form',
@@ -539,10 +539,10 @@ import { __, sprintf } from '@wordpress/i18n';
                             // Issue 4: Filter auf neu geladene Sektionen anwenden
                             $(document).trigger('fs-tm-team-form-loaded', [$body]);
                         } else {
-                            $body.html($('<p class="notice notice-error"></p>').text(__('Fehler beim Nachladen der Daten.', 'fs-team-manager')));
+                            $body.html($('<p class="notice notice-error"></p>').text(__('Fehler beim Nachladen der Daten.', 'fabriel-team-manager')));
                         }
                     }).fail(function() {
-                        $body.html($('<p class="notice notice-error"></p>').text(__('Netzwerkfehler beim Laden.', 'fs-team-manager')));
+                        $body.html($('<p class="notice notice-error"></p>').text(__('Netzwerkfehler beim Laden.', 'fabriel-team-manager')));
                     });
                 } else {
                     $card.removeClass('is-collapsed').addClass('is-expanded');
@@ -567,11 +567,11 @@ import { __, sprintf } from '@wordpress/i18n';
         $(document).on('click', '.fs-tm-btn-reset-team', function(e) {
             e.preventDefault();
             var $form = $(this).closest('.fs-tm-team-form');
-            if (!confirm(__('Möchten Sie alle ungespeicherten Änderungen in diesem Team verwerfen?', 'fs-team-manager'))) {
+            if (!confirm(__('Möchten Sie alle ungespeicherten Änderungen in diesem Team verwerfen?', 'fabriel-team-manager'))) {
                 return false;
             }
             resetFormToInitialValues($form);
-            showToast(__('Änderungen wurden verworfen.', 'fs-team-manager'), 'success');
+            showToast(__('Änderungen wurden verworfen.', 'fabriel-team-manager'), 'success');
         });
 
         // 5. Zuklappen Button
@@ -579,7 +579,7 @@ import { __, sprintf } from '@wordpress/i18n';
             e.preventDefault();
             var $card = $(this).closest('.fs-tm-team-card');
             if ($card.hasClass('has-unsaved-changes')) {
-                if (!confirm(__('Sie haben ungespeicherte Änderungen in diesem Team. Möchten Sie es wirklich zuklappen und die Änderungen verwerfen?', 'fs-team-manager'))) {
+                if (!confirm(__('Sie haben ungespeicherte Änderungen in diesem Team. Möchten Sie es wirklich zuklappen und die Änderungen verwerfen?', 'fabriel-team-manager'))) {
                     return false;
                 }
                 resetFormToInitialValues($card.find('.fs-tm-team-form'));
@@ -637,13 +637,13 @@ import { __, sprintf } from '@wordpress/i18n';
         $(document).on('input', '.fs-tm-team-name-input', function() {
             var val = $.trim($(this).val());
             var $card = $(this).closest('.fs-tm-team-card');
-            $card.find('.fs-tm-team-title-text').text(val || __('Unbenanntes Team', 'fs-team-manager'));
+            $card.find('.fs-tm-team-title-text').text(val || __('Unbenanntes Team', 'fabriel-team-manager'));
         });
 
         $(document).on('input', '.period-label-input', function() {
             var val = $.trim($(this).val());
             var $pCard = $(this).closest('.fs-tm-period-card');
-            $pCard.find('.fs-tm-period-title-text').text(val || __('Unbenannter Zeitraum', 'fs-team-manager'));
+            $pCard.find('.fs-tm-period-title-text').text(val || __('Unbenannter Zeitraum', 'fabriel-team-manager'));
         });
 
         $(document).on('change', '.fs-tm-club-matches-toggle', function() {
@@ -651,9 +651,9 @@ import { __, sprintf } from '@wordpress/i18n';
             var $pCard = $(this).closest('.fs-tm-period-card');
             var $label = $pCard.find('.fs-tm-matches-label-text');
             if (isChecked) {
-                $label.text(__('Spielplan-ID des Vereins:', 'fs-team-manager'));
+                $label.text(__('Spielplan-ID des Vereins:', 'fabriel-team-manager'));
             } else {
-                $label.text(__('Spielplan-ID der Mannschaft:', 'fs-team-manager'));
+                $label.text(__('Spielplan-ID der Mannschaft:', 'fabriel-team-manager'));
             }
         });
 
@@ -682,7 +682,7 @@ import { __, sprintf } from '@wordpress/i18n';
                     $('html, body').animate({ scrollTop: $firstError.offset().top - 80 }, 300);
                     $firstError.focus();
                 }
-                showToast(__('Speichern blockiert:', 'fs-team-manager') + ' ' + idCheck.errorMsg, 'error');
+                showToast(__('Speichern blockiert:', 'fabriel-team-manager') + ' ' + idCheck.errorMsg, 'error');
                 return false;
             }
 
@@ -696,7 +696,7 @@ import { __, sprintf } from '@wordpress/i18n';
                     }
                     $('html, body').animate({ scrollTop: $firstConflict.offset().top - 80 }, 300);
                 }
-                showToast(__('Speichern blockiert: Bitte korrigiere die rot markierten Zeiträume.', 'fs-team-manager'), 'error');
+                showToast(__('Speichern blockiert: Bitte korrigiere die rot markierten Zeiträume.', 'fabriel-team-manager'), 'error');
                 return false;
             }
 
@@ -726,27 +726,27 @@ import { __, sprintf } from '@wordpress/i18n';
                 String(today.getDate()).padStart(2, '0');
             
             var t = {
-                toggleHint: __('Klicken zum Auf-/Zuklappen', 'fs-team-manager'),
-                newPeriod: __('Neuer Zeitraum', 'fs-team-manager'),
-                newBadge: __('Neu (ungespeichert)', 'fs-team-manager'),
-                deletePeriod: __('Zeitraum löschen', 'fs-team-manager'),
-                deleteLabel: __('Löschen', 'fs-team-manager'),
-                labelField: __('Bezeichnung des Zeitraums:', 'fs-team-manager'),
-                labelTip: __('Wird im Frontend-Dropdown und im Header angezeigt.', 'fs-team-manager'),
-                labelPlaceholder: __('z. B. Saison 2026/2027 oder Hinrunde', 'fs-team-manager'),
-                fromField: __('Gültig ab (Start):', 'fs-team-manager'),
-                fromTip: __('Datum, ab dem die Website automatisch umschaltet.', 'fs-team-manager'),
-                toField: __('Gültig bis (optional):', 'fs-team-manager'),
-                toTip: __('Enddatum.', 'fs-team-manager'),
-                matchesField: __('Spielplan-ID der Mannschaft:', 'fs-team-manager'),
-                matchesTip: __('UUID aus dem Einbettungscode von fussball.de (data-type „team-matches").', 'fs-team-manager'),
-                tableField: __('Tabellen-ID:', 'fs-team-manager'),
-                tableTip: __('UUID aus dem Einbettungscode von fussball.de (data-type „table").', 'fs-team-manager'),
-                testBtn: __('Testen', 'fs-team-manager'),
-                testTip: __('Widget live testen / Vorschau', 'fs-team-manager'),
-                clubToggle: __('Club-Matches', 'fs-team-manager'),
-                clubTip: __('Schaltet den Widget-Typ von „team-matches" auf „club-matches" um.', 'fs-team-manager'),
-                idPlaceholder: __('z. B. 01234567-89ab-cdef-0123-456789abcdef', 'fs-team-manager')
+                toggleHint: __('Klicken zum Auf-/Zuklappen', 'fabriel-team-manager'),
+                newPeriod: __('Neuer Zeitraum', 'fabriel-team-manager'),
+                newBadge: __('Neu (ungespeichert)', 'fabriel-team-manager'),
+                deletePeriod: __('Zeitraum löschen', 'fabriel-team-manager'),
+                deleteLabel: __('Löschen', 'fabriel-team-manager'),
+                labelField: __('Bezeichnung des Zeitraums:', 'fabriel-team-manager'),
+                labelTip: __('Wird im Frontend-Dropdown und im Header angezeigt.', 'fabriel-team-manager'),
+                labelPlaceholder: __('z. B. Saison 2026/2027 oder Hinrunde', 'fabriel-team-manager'),
+                fromField: __('Gültig ab (Start):', 'fabriel-team-manager'),
+                fromTip: __('Datum, ab dem die Website automatisch umschaltet.', 'fabriel-team-manager'),
+                toField: __('Gültig bis (optional):', 'fabriel-team-manager'),
+                toTip: __('Enddatum.', 'fabriel-team-manager'),
+                matchesField: __('Spielplan-ID der Mannschaft:', 'fabriel-team-manager'),
+                matchesTip: __('UUID aus dem Einbettungscode von fussball.de (data-type „team-matches").', 'fabriel-team-manager'),
+                tableField: __('Tabellen-ID:', 'fabriel-team-manager'),
+                tableTip: __('UUID aus dem Einbettungscode von fussball.de (data-type „table").', 'fabriel-team-manager'),
+                testBtn: __('Testen', 'fabriel-team-manager'),
+                testTip: __('Widget live testen / Vorschau', 'fabriel-team-manager'),
+                clubToggle: __('Club-Matches', 'fabriel-team-manager'),
+                clubTip: __('Schaltet den Widget-Typ von „team-matches" auf „club-matches" um.', 'fabriel-team-manager'),
+                idPlaceholder: __('z. B. 01234567-89ab-cdef-0123-456789abcdef', 'fabriel-team-manager')
             };
 
             var periodHtml = `
@@ -836,7 +836,7 @@ import { __, sprintf } from '@wordpress/i18n';
         // 10. Zeitraum löschen
         $(document).on('click', '.fs-tm-delete-period', function(e) {
             e.preventDefault();
-            if (!confirm(__('Möchten Sie diesen Zeitraum wirklich löschen?', 'fs-team-manager'))) return false;
+            if (!confirm(__('Möchten Sie diesen Zeitraum wirklich löschen?', 'fabriel-team-manager'))) return false;
             var $card = $(this).closest('.fs-tm-period-card');
             var $container = $card.closest('.fs-tm-periods-container');
             var $form = $card.closest('.fs-tm-team-form');
@@ -861,13 +861,13 @@ import { __, sprintf } from '@wordpress/i18n';
             var uuid = $.trim($input.val());
 
             if (!uuid) {
-                showToast(__('Bitte zuerst eine UUID in das Feld eintragen.', 'fs-team-manager'), 'warning');
+                showToast(__('Bitte zuerst eine UUID in das Feld eintragen.', 'fabriel-team-manager'), 'warning');
                 $input.focus();
                 return;
             }
 
             if (!isValidUuid(uuid)) {
-                showToast(__('Ungültiges UUID-Format (erwartet: 36 Zeichen mit Bindestrichen).', 'fs-team-manager'), 'error');
+                showToast(__('Ungültiges UUID-Format (erwartet: 36 Zeichen mit Bindestrichen).', 'fabriel-team-manager'), 'error');
                 $input.focus();
                 return;
             }
@@ -926,8 +926,8 @@ import { __, sprintf } from '@wordpress/i18n';
         $(document).on('submit', '#fs-tm-import-form', function(e) {
             var mode = $(this).find('input[name="fs_tm_import_mode"]:checked').val();
             var msg = mode === 'replace'
-                ? __('Achtung: Im Modus „Ersetzen" wird der komplette aktuelle Bestand durch den Inhalt der Datei ersetzt.\n\nMöchten Sie das Backup jetzt einspielen?', 'fs-team-manager')
-                : __('Die Mannschaften aus der Datei werden hinzugefügt bzw. aktualisiert.\n\nMöchten Sie das Backup jetzt einspielen?', 'fs-team-manager');
+                ? __('Achtung: Im Modus „Ersetzen" wird der komplette aktuelle Bestand durch den Inhalt der Datei ersetzt.\n\nMöchten Sie das Backup jetzt einspielen?', 'fabriel-team-manager')
+                : __('Die Mannschaften aus der Datei werden hinzugefügt bzw. aktualisiert.\n\nMöchten Sie das Backup jetzt einspielen?', 'fabriel-team-manager');
             if (!confirm(msg)) {
                 e.preventDefault();
                 return false;

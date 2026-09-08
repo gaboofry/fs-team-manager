@@ -1,4 +1,4 @@
-# Architektur: Fabriel Software Team-Manager (Core)
+# Architektur: Fabriel Team Manager (Core)
 
 Referenz für Menschen **und** für Coding-Agents. Wer an diesem Plugin arbeitet, liest zuerst
 dieses Dokument und danach [`DESIGN-SYSTEM.md`](DESIGN-SYSTEM.md).
@@ -47,7 +47,7 @@ Schlägt eine Prüfung fehl, wird das Plugin deaktiviert und ein `wp_die()` mit
 
 Hängt an `plugins_loaded` (Priorität: Standard = 10). Reihenfolge:
 
-1. `load_plugin_textdomain('fs-team-manager', …)`
+1. `load_plugin_textdomain('fabriel-team-manager', …)`
 2. `Data\TeamRepository::init()` — registriert den Post-Type und prüft die Version
 3. `Admin\AdminPage::init()` — Menü, Assets, AJAX, `admin_init`-Handler
 4. `Admin\SettingsPage::init()` — `admin_init`-Handler für die Einstellungsseite
@@ -71,7 +71,7 @@ Hängt an `plugins_loaded` (Priorität: Standard = 10). Reihenfolge:
 
 ```
 fs-team-manager/
-├── fs-team-manager.php            Plugin-Header, Konstanten, Autoloader, Bootstrap
+├── fabriel-team-manager.php       Plugin-Header, Konstanten, Autoloader, Bootstrap
 ├── uninstall.php                  Vollständige Deinstallation
 ├── README.md                      Startseite des öffentlichen Repositories
 ├── docs/
@@ -120,7 +120,7 @@ fs-team-manager/
 │   └── blocks/
 │       ├── fussball-widget/       block.json | index.js | index.asset.php
 │       └── tables-overview/       block.json | index.js | index.asset.php
-├── languages/fs-team-manager.pot
+├── languages/fabriel-team-manager.pot
 ├── package.json                   @wordpress/scripts ^27
 ├── webpack.config.js              Einstiegspunkte + SourceHeaderPlugin (Quellhinweis)
 ├── composer.json                  PSR-4-Autoloader (optional, Fallback im Plugin-Header)
@@ -518,7 +518,7 @@ docker compose up -d
 5. **Neuer Block?** `src/blocks/<name>/{block.json,index.js,edit.js}`, Renderer in
    `BlockRegistrar`, Eintrag in `webpack.config.js`.
 6. **Neue Klasse im Markup?** Zuerst in den Komponenten-Katalog des Design-Systems eintragen.
-7. **Zeichenketzen** immer mit Textdomain `fs-team-manager` und Übersetzer-Kommentar
+7. **Zeichenketten** immer mit Textdomain `fabriel-team-manager` und Übersetzer-Kommentar
    bei Platzhaltern.
 8. **Nach jeder Änderung:** `npm run build`, danach `Tests\verify.ps1` und die
    Checkliste am Ende des Design-Systems.
