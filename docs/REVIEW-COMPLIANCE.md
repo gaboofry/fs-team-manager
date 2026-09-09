@@ -193,6 +193,17 @@ FTP-Verbindung aufgebaut wird.
 | 14 | Keine häufigen Commits | Betrifft das SVN-Release-Repository, nicht den Code. |
 | 15 | Versionsnummer erhöhen | Auf 1.2.2 erhöht, Changelog ergänzt. |
 | 16 | Vollständiges Plugin einreichen | Funktionsumfang vollständig, ZIP wird über `build.sh` erzeugt. |
-| 17 | Marken respektieren | Slug `fs-team-manager` beginnt mit der eigenen Marke, nicht mit einer fremden; Markenhinweis in der `readme.txt`. |
+| 17 | Marken respektieren | Slug `fabriel-team-manager` (vom Review-Team bestätigt) beginnt mit der eigenen Marke, nicht mit einer fremden; Markenhinweis in der `readme.txt`. |
 | 18 | Rechte des Plugin-Teams | Zur Kenntnis genommen. |
+
+---
+
+## 8. Review-Runde 2: Plugin-Header „Tested up to“
+
+**Beanstandung:** Der Header `Tested up to` war sowohl in `fabriel-team-manager.php` als auch in `readme.txt` angegeben. Laut WordPress.org-Vorgaben ist `Tested up to` kein gültiger Header für die Haupt-PHP-Datei und darf ausschließlich in `readme.txt` deklariert werden, um Fehlinterpretationen bei der Versions- und Kompatibilitätsanzeige im Plugin-Verzeichnis auszuschließen.
+
+**Umsetzung:**
+- Zeile `Tested up to: 7.1` aus dem Docblock-Header von `fabriel-team-manager.php` entfernt.
+- Deklaration `Tested up to: 7.1` verbleibt unverändert und ausschließlich in `readme.txt`.
+- Slug `fabriel-team-manager` und Anzeigename `Fabriel Team Manager` wurden vom WordPress.org-Review-Team final übernommen.
 

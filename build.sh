@@ -86,7 +86,7 @@ done
 
 echo -e "${YELLOW}[INFO] Erstelle Linux-kompatibles ZIP-Archiv...${NC}"
 
-(cd "$TEMP_DIR" && zip -r -q "$ZIP_PATH" "fs-team-manager")
+(cd "$TEMP_DIR" && zip -r -q "$ZIP_PATH" "fabriel-team-manager")
 
 echo -e "${GREEN}==================================================${NC}"
 echo -e "${GREEN}[SUCCESS] Erfolgreich abgeschlossen!${NC}"

@@ -5,7 +5,6 @@
  * Description:       Zentrale Verwaltung von Mannschaften, Zeiträumen, Spielplänen und Tabellen für Widgets von fussball.de.
  * Version:           1.2.2
  * Requires at least: 6.0
- * Tested up to:      7.1
  * Requires PHP:      7.4
  * Author:            Fabriel Software
  * Author URI:        https://fabrielsoftware.de/
