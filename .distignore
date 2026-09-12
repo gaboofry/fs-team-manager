@@ -1,0 +1,19 @@
+# Git & CI/CD
+.git
+.github
+.gitignore
+.distignore
+.editorconfig
+build.ps1
+build.sh
+codebase_dump.txt
+setup.py
+dump_codebase.py
+test_backup.json
+standardbild_staff.png
+Review_WP_Reviewteam.*
+node_modules/
+vendor/
+*.zip
+.DS_Store
+Thumbs.db
