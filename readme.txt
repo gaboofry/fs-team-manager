@@ -192,9 +192,11 @@ The public block filters `fs_tm_widget_card_html`, `fs_tm_tables_overview_html`,
 
 == Screenshots ==
 
-1. Central management of all teams and time periods
-2. "Fixture list & table" block in the frontend with period selection
-3. "Tables overview (Grid)" block
+1. Central management: Configure teams, define time periods, and maintain fixture and league table IDs.
+2. Integrated Widget Inspector: Responsive live preview of fussball.de widgets across desktop, tablet, and mobile views.
+3. Block Editor: Intuitive configuration of the "Fixture list & table" block with automatic page recognition.
+4. Frontend presentation: Rendered league table with instant season archive via dropdown selection.
+5. GDPR two-click privacy shield: Integrated placeholder blocking external fussball.de iFrames until explicit visitor consent.
 
 == Changelog ==
 
