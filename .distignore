@@ -4,6 +4,12 @@
 .gitignore
 .distignore
 .editorconfig
+README.md
+
+# Dokumentation
+docs/
+
+# Lokale Build- & Hilfsskripte
 build.ps1
 build.sh
 codebase_dump.txt
@@ -12,8 +18,12 @@ dump_codebase.py
 test_backup.json
 standardbild_staff.png
 Review_WP_Reviewteam.*
+
+# Dependencies & Build-Zwischenstände
 node_modules/
 vendor/
+
+# Archive & OS-Dateien
 *.zip
 .DS_Store
 Thumbs.db
