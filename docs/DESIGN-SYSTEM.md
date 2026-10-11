@@ -198,7 +198,7 @@ Die Blöcke sind serverseitig gerendert; der Editor zeigt eine **Vorschau**
 | Element / Klasse | Zweck |
 | --- | --- |
 | `edit.js` (beide Blöcke) | `SelectControl` Mannschaft / Ansicht / Zeitraum, `ToggleControl` Teamname, `SchemePanel` aus `window.fsTmDesign` für das Farbschema. |
-| `fsTmBlockData` | Lokalisierte Editordaten: `teamOptions`, `teamsData`, `viewOptions`; erweiterbar über `fs_tm_block_editor_data`. |
+| `fsTmBlockData` | Lokalisierte Editordaten: `teamOptions`, `teamsData`, `viewOptions`; erweiterbar über `fs_tm_block_editor_data`. Hängt am block-eigenen Editor-Skript (Handle-Ermittlung siehe ARCHITECTURE.md §9.2). |
 | `fsTmDesignData` | Zentrale Vorgabe und Schemata für die Editor-Vorschau; lokalisiert auf `fs-tm-design-js`. |
 
 Die Editor-Platzhalter-Klassen (`fs-tm-editor-*`) folgen dem Namensschema

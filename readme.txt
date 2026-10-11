@@ -2,10 +2,10 @@
 Contributors: fabrielsoftware
 Donate link: https://paypal.me/fabergab
 Tags: fussball, soccer, sports, tables, blocks
-Requires at least: 6.0
+Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.2
+Stable tag: 1.2.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -198,6 +198,11 @@ Die öffentlichen Block-Filter `fs_tm_widget_card_html`, `fs_tm_tables_overview_
 
 == Changelog ==
 
+= 1.2.4 =
+* Behoben: Im Block „Spielplan & Tabelle“ ließ sich im Blockeditor keine Mannschaft auswählen – die Auswahl zeigte nur „Automatisch (anhand Seite)“. Die Editordaten und Übersetzungen wurden an einen falschen Skript-Handle übergeben; der Handle wird jetzt aus dem registrierten Block ermittelt.
+* Behoben: Die Editorübersetzungen des Blocks „Tabellen-Übersicht (Grid)“ wurden aus demselben Grund nicht geladen.
+* Geändert: Mindestversion ist jetzt WordPress 6.1. Die Blöcke binden mehrere Editor-Skripte ein, was WordPress erst ab Version 6.1 unterstützt.
+
 = 1.2.2 =
 * Behoben: Bei deaktivierter Zwei-Klick-Lösung wurde jeder Spielplan und jede Tabelle doppelt eingebunden – das Anbieterskript wurde vom Frontend-Skript ein zweites Mal geladen, obwohl WordPress es bereits eingereiht hatte.
 * Neu: Kleine animierte Ladeanzeige im Design des Plugins während des Ladens von Spielplan oder Tabelle von fussball.de.
@@ -240,6 +245,9 @@ Die öffentlichen Block-Filter `fs_tm_widget_card_html`, `fs_tm_tables_overview_
 * Erstveröffentlichung.
 
 == Upgrade Notice ==
+
+= 1.2.4 =
+Stellt die Mannschaftsauswahl im Block „Spielplan & Tabelle“ wieder her. Erfordert jetzt mindestens WordPress 6.1.
 
 = 1.1.0 =
 Mannschaften werden beim ersten Aufruf nach dem Update automatisch in ein neues Speicherformat migriert. Bitte erstellen Sie vorab ein Backup.

@@ -6,7 +6,7 @@ zwei Gutenberg-Blöcken.
 
 * Internetauftritt: <https://teammanager.fabrielsoftware.de/>
 * Lizenz: GPL-2.0-or-later (`license.txt`)
-* Benötigt: WordPress ab 6.0, PHP ab 7.4
+* Benötigt: WordPress ab 6.1, PHP ab 7.4
 
 Dieses Repository enthält den **vollständigen, menschenlesbaren Quellcode** des
 Plugins sowie das Build-Werkzeug. Es gibt keinen minifizierten Code ohne Quelle

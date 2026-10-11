@@ -2,7 +2,7 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Fabriel Team Manager 1.2.2\n"
+"Project-Id-Version: Fabriel Team Manager 1.2.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fabriel-team-manager\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1258,7 +1258,7 @@ msgstr ""
 #. translators: %s: current WordPress version
 #: includes/Plugin.php:57
 #, php-format
-msgid "Fabriel Software Team-Manager erfordert mindestens WordPress Version 6.0. Auf Ihrer Website läuft WordPress Version %s."
+msgid "Fabriel Team Manager erfordert mindestens WordPress Version 6.1. Auf Ihrer Website läuft WordPress Version %s."
 msgstr ""
 
 #: build/admin.js:14

@@ -35,7 +35,7 @@ Details zur Lizenz- und Datenschutzlage siehe [`LEGAL.md`](LEGAL.md).
 Prüft in dieser Reihenfolge:
 
 1. PHP ≥ 7.4
-2. WordPress ≥ 6.0
+2. WordPress ≥ 6.1 (mehrere `editorScript`-Einträge in der `block.json`, siehe §9.2)
 
 Schlägt eine Prüfung fehl, wird das Plugin deaktiviert und ein `wp_die()` mit
 `back_link` angezeigt. Danach:
@@ -438,6 +438,38 @@ die Daten übernommen — der Nutzer verliert seine Eingaben nicht.
 `block.json` referenziert `style: "fs-tm-frontend-css"` und
 `viewScript: "fs-tm-frontend-js"`. WordPress liefert die Assets nur aus, wenn
 eine Seite einen Block des Plugins enthält.
+
+### 9.2 Editor-Skripte und ihre Handles
+
+Jeder Block lädt im Editor zwei Skripte:
+
+```json
+"editorScript": ["fs-tm-design-js", "file:./index.js"]
+```
+
+WordPress unterstützt diese Listenform erst ab Version 6.1 (deshalb die
+Mindestversion). Den Handle für einen `file:`-Eintrag bildet
+`generate_block_asset_handle()` aus der **Position** in der Liste:
+
+| Position | Handle |
+| --- | --- |
+| 1 | `{namespace}-{block}-editor-script` |
+| 2 | `{namespace}-{block}-editor-script-2` |
+| n | `{namespace}-{block}-editor-script-n` |
+
+Das block-eigene Skript von `fstm/fussball-widget` heißt daher
+`fstm-fussball-widget-editor-script-2`.
+
+**Regel:** Handles für `wp_localize_script()` und `wp_set_script_translations()`
+werden nie von Hand zusammengesetzt. `BlockRegistrar::editorScriptHandle()` liest
+sie aus `WP_Block_Type::$editor_script_handles` (Rückgabe von
+`register_block_type()`) und überspringt dabei `fs-tm-design-js`. Ein falscher
+Handle erzeugt keinen Fehler: WordPress verwirft Daten und Übersetzungen
+stillschweigend, der Editor fällt auf seine Ersatzwerte zurück (z. B. nur
+„Automatisch (anhand Seite)“ in der Mannschaftsauswahl).
+
+Kontrolle im Blockeditor (Browser-Konsole): `window.fsTmBlockData` muss die
+Mannschaften unter `teamOptions` enthalten.
 
 ---
 

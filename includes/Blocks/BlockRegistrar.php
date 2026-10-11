@@ -40,7 +40,7 @@ class BlockRegistrar {
             'title'      => true,
             'hidden'     => true,
             // wp_kses() unterstützt den Platzhalter `data-*` seit WordPress 5.0
-            // (siehe wp_kses_attr_check()); das Plugin verlangt mindestens 6.0.
+            // (siehe wp_kses_attr_check()); das Plugin verlangt mindestens 6.1.
             'data-*'     => true,
             'aria-label' => true,
             'aria-hidden' => true,
@@ -150,6 +150,26 @@ class BlockRegistrar {
         ));
     }
 
+    /**
+     * Handle des block-eigenen Editor-Skripts (`file:./index.js`).
+     *
+     * `editorScript` ist in der block.json eine Liste. WordPress vergibt für
+     * Einträge ab der zweiten Position die Handles `{block}-editor-script-2`, `-3`
+     * usw. (generate_block_asset_handle()). Ein von Hand zusammengesetzter Handle
+     * verfehlt das Skript; wp_localize_script() und wp_set_script_translations()
+     * schlagen dann ohne Meldung fehl. Deshalb wird der Handle aus dem
+     * registrierten Blocktyp gelesen (`editor_script_handles`, ab WordPress 6.1).
+     *
+     * @param \WP_Block_Type|false $block_type Rückgabe von register_block_type().
+     * @return string Leer, wenn der Block kein eigenes Editor-Skript hat.
+     */
+    private static function editorScriptHandle($block_type) {
+        if (!$block_type instanceof \WP_Block_Type || empty($block_type->editor_script_handles)) return '';
+
+        $handles = array_diff($block_type->editor_script_handles, array(self::designScriptHandle()));
+        return $handles ? (string) reset($handles) : '';
+    }
+
     public static function registerBlocks() {
         self::registerFrontendAssets();
         self::registerDesignScript();
@@ -169,27 +189,31 @@ class BlockRegistrar {
         // 1. Spielplan/Tabellen-Block
         $widget_meta = FS_TM_PATH . 'build/blocks/fussball-widget';
         if (file_exists($widget_meta . '/block.json')) {
-            register_block_type($widget_meta, array(
+            $widget_handle = self::editorScriptHandle(register_block_type($widget_meta, array(
                 'render_callback' => array(__CLASS__, 'renderSingleWidget')
-            ));
-            wp_set_script_translations('fstm-fussball-widget-editor-script', 'fabriel-team-manager', FS_TM_PATH . 'languages');
-            wp_localize_script('fstm-fussball-widget-editor-script', 'fsTmBlockData', apply_filters('fs_tm_block_editor_data', array(
-                'teamOptions' => $options,
-                'teamsData'   => $teams_data,
-                'viewOptions' => array(
-                    array('label' => '📅 ' . __('Spielplan', 'fabriel-team-manager'), 'value' => 'matches'),
-                    array('label' => '🏆 ' . __('Tabelle', 'fabriel-team-manager'), 'value' => 'table')
-                )
-            ), $teams));
+            )));
+            if ($widget_handle) {
+                wp_set_script_translations($widget_handle, 'fabriel-team-manager', FS_TM_PATH . 'languages');
+                wp_localize_script($widget_handle, 'fsTmBlockData', apply_filters('fs_tm_block_editor_data', array(
+                    'teamOptions' => $options,
+                    'teamsData'   => $teams_data,
+                    'viewOptions' => array(
+                        array('label' => '📅 ' . __('Spielplan', 'fabriel-team-manager'), 'value' => 'matches'),
+                        array('label' => '🏆 ' . __('Tabelle', 'fabriel-team-manager'), 'value' => 'table')
+                    )
+                ), $teams));
+            }
         }
 
         // 2. Tabellen Übersicht Block
         $overview_meta = FS_TM_PATH . 'build/blocks/tables-overview';
         if (file_exists($overview_meta . '/block.json')) {
-            register_block_type($overview_meta, array(
+            $overview_handle = self::editorScriptHandle(register_block_type($overview_meta, array(
                 'render_callback' => array(__CLASS__, 'renderTablesOverview')
-            ));
-            wp_set_script_translations('fstm-fussball-tables-overview-editor-script', 'fabriel-team-manager', FS_TM_PATH . 'languages');
+            )));
+            if ($overview_handle) {
+                wp_set_script_translations($overview_handle, 'fabriel-team-manager', FS_TM_PATH . 'languages');
+            }
         }
 
         do_action('fs_tm_register_addon_blocks');

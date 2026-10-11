@@ -1,4 +1,4 @@
-/*! Fabriel Team Manager v1.2.2
+/*! Fabriel Team Manager v1.2.4
  *
  * This file is GENERATED - do not edit it directly.
  * Source file:  src/frontend/frontend.js

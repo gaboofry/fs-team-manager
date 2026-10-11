@@ -50,12 +50,12 @@ class Plugin {
         }
 
         global $wp_version;
-        if (version_compare($wp_version, '6.0', '<')) {
+        if (version_compare($wp_version, '6.1', '<')) {
             deactivate_plugins(plugin_basename(FS_TM_FILE));
             wp_die(
                 sprintf(
                     /* translators: %s: current WordPress version */
-                    esc_html__('Fabriel Team Manager erfordert mindestens WordPress Version 6.0. Auf Ihrer Website läuft WordPress Version %s.', 'fabriel-team-manager'),
+                    esc_html__('Fabriel Team Manager erfordert mindestens WordPress Version 6.1. Auf Ihrer Website läuft WordPress Version %s.', 'fabriel-team-manager'),
                     esc_html($wp_version)
                 ),
                 esc_html__('Plugin-Aktivierungsfehler', 'fabriel-team-manager'),
