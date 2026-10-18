@@ -249,6 +249,9 @@ Slots aus einem Add-on stammen. Ergänzend fordert `renderWidgetSlot()` das
 Frontend-Skript ausdrücklich an, weil `renderSingleWidget()` auch außerhalb der
 Core-Blöcke aufgerufen wird und das `viewScript` der `block.json` dort nicht greift.
 
+Der Link „Zur Website des Anbieters“ und der optionale Credit-Link öffnen einen neuen Tab; ihr
+`aria-label` hängt an den sichtbaren Text „(öffnet in neuem Tab)“ an (`fsTmFrontend.i18n.newTab`).
+
 ### 4.4 Kopfzeilen-Höhenangleichung
 
 Innerhalb einer `.fs-tm-tables-grid` werden alle `.fs-tm-card-header` auf die

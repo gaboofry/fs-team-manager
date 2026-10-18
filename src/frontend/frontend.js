@@ -433,6 +433,11 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
     // ------------------------------------------------------------------
     var ATTRIBUTION_HOME_URL = 'https://fabrielsoftware.de/';
 
+    // Sichtbarer Linktext zuerst, damit Sprachsteuerung den Link weiter über ihn findet.
+    function newTabLabel(text) {
+        return text + ' (' + t('newTab', 'öffnet in neuem Tab') + ')';
+    }
+
     function addCardAttribution(card) {
         var showCredit = !!settings.showAttribution;
 
@@ -456,6 +461,7 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
             link.textContent = 'Fabriel Software';
             link.target = '_blank';
             link.rel = 'noopener noreferrer';
+            link.setAttribute('aria-label', newTabLabel(link.textContent));
 
             el.appendChild(document.createTextNode('Eingebunden durch '));
             el.appendChild(link);
@@ -538,6 +544,7 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
         link.target = '_blank';
         link.rel = 'noopener noreferrer';
         link.textContent = t('consentProviderLink', 'Zur Website des Anbieters');
+        link.setAttribute('aria-label', newTabLabel(link.textContent));
 
         box.appendChild(icon);
         box.appendChild(text);

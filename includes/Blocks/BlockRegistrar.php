@@ -120,6 +120,7 @@ class BlockRegistrar {
                 'consentRemember'     => __('Auswahl für diesen Browser merken', 'fabriel-team-manager'),
                 'consentButton'       => __('Inhalt laden', 'fabriel-team-manager'),
                 'consentProviderLink' => __('Zur Website des Anbieters', 'fabriel-team-manager'),
+                'newTab'              => __('öffnet in neuem Tab', 'fabriel-team-manager'),
             ),
         ));
     }
@@ -261,8 +262,9 @@ class BlockRegistrar {
         $html .= '<label class="fs-tm-consent-remember"><input type="checkbox"> ' . esc_html__('Auswahl für diesen Browser merken', 'fabriel-team-manager') . '</label>';
         $html .= '<button type="button" class="fs-tm-consent-btn">' . esc_html__('Inhalt laden', 'fabriel-team-manager') . '</button>';
         $html .= sprintf(
-            '<a class="fs-tm-consent-link" href="%s" target="_blank" rel="noopener noreferrer">%s</a>',
+            '<a class="fs-tm-consent-link" href="%s" target="_blank" rel="noopener noreferrer" aria-label="%s">%s</a>',
             esc_url('https://www.fussball.de/'),
+            esc_attr__('Zur Website des Anbieters (öffnet in neuem Tab)', 'fabriel-team-manager'),
             esc_html__('Zur Website des Anbieters', 'fabriel-team-manager')
         );
         $html .= '</div></div>';
