@@ -203,36 +203,64 @@ export function detectBackgroundColor(element) {
 }
 
 /**
+ * Schreibt die Kontrast-Tokens einer Fläche als Inline-Variablen. Unveränderte Werte werden
+ * nicht erneut gesetzt: Das spart Style-Neuberechnungen und löst keinen MutationObserver aus.
+ */
+function writeSurface(el, surf) {
+    const targetStyle = el && el.style;
+    if (!targetStyle) return;
+
+    const tokens = {
+        '--fs-tm-page-bg': surf.bg,
+        '--fs-tm-ink': surf.ink,
+        '--fs-tm-text': surf.ink_soft,
+        '--fs-tm-muted': surf.ink_soft,
+        '--fs-tm-faint': surf.ink_faint,
+        '--fs-tm-line': surf.line,
+        '--fs-tm-line-strong': surf.line_strong,
+    };
+    if (surf.is_dark) {
+        tokens['--fs-tm-surface'] = surf.raised;
+        tokens['--fs-tm-surface-alt'] = surf.sunken;
+        tokens['--fs-tm-surface-sunken'] = surf.raised;
+    }
+
+    Object.keys(tokens).forEach((name) => {
+        if (targetStyle.getPropertyValue(name) !== tokens[name]) {
+            targetStyle.setProperty(name, tokens[name]);
+        }
+    });
+}
+
+/**
  * Berechnet und setzt die Kontrast-Tokens gegen den ermittelten Seitenhintergrund.
  */
 export function applyPageContrast(target) {
     if (typeof document === 'undefined') return null;
     const el = target || document.documentElement;
-    const bg = detectBackgroundColor(el);
-    const surf = surface(bg);
-
-    const targetStyle = el.style;
-    if (targetStyle) {
-        targetStyle.setProperty('--fs-tm-page-bg', surf.bg);
-        targetStyle.setProperty('--fs-tm-ink', surf.ink);
-        targetStyle.setProperty('--fs-tm-text', surf.ink_soft);
-        targetStyle.setProperty('--fs-tm-muted', surf.ink_soft);
-        targetStyle.setProperty('--fs-tm-faint', surf.ink_faint);
-        targetStyle.setProperty('--fs-tm-line', surf.line);
-        targetStyle.setProperty('--fs-tm-line-strong', surf.line_strong);
-        if (surf.is_dark) {
-            targetStyle.setProperty('--fs-tm-surface', surf.raised);
-            targetStyle.setProperty('--fs-tm-surface-alt', surf.sunken);
-            targetStyle.setProperty('--fs-tm-surface-sunken', surf.raised);
-        }
-    }
+    const surf = surface(detectBackgroundColor(el));
+    writeSurface(el, surf);
     return surf;
 }
+
+const CONTAINER_SELECTOR = [
+    '.fs-tm-teampage',
+    '.fs-tm-overview',
+    '.fs-tm-hub',
+    '.fs-tm-table-card',
+    '.fs-tm-card',
+].join(',');
 
 /**
  * Durchsucht alle übergeordneten Blöcke und passt den Kontrast lokal an,
  * falls ein Container in einem abweichenden Hintergrundbereich (z. B. Group-Block)
  * liegt.
+ *
+ * Gelesen und geschrieben wird ebenenweise: erst alle Hintergründe einer
+ * Verschachtelungstiefe, dann deren Tokens. Abwechselndes Lesen und Schreiben je
+ * Container erzwänge jedes Mal eine Neuberechnung der Styles (Forced Reflow).
+ * Innere Container lesen erst nach den äußeren, weil ihr Hintergrund von deren
+ * Tokens abhängen kann.
  */
 export function applyAllContainerContrasts() {
     if (typeof document === 'undefined') return;
@@ -240,32 +268,19 @@ export function applyAllContainerContrasts() {
     // Globale Kontrastanpassung auf :root
     applyPageContrast(document.documentElement);
 
-    // Alle relevanten Blöcke außerhalb von Karten prüfen
-    const selectors = [
-        '.fs-tm-teampage',
-        '.fs-tm-overview',
-        '.fs-tm-hub',
-        '.fs-tm-table-card',
-        '.fs-tm-card',
-    ];
-    const containers = document.querySelectorAll(selectors.join(','));
-
-    containers.forEach((container) => {
-        const bg = detectBackgroundColor(container.parentElement);
-        const surf = surface(bg);
-        const targetStyle = container.style;
-
-        targetStyle.setProperty('--fs-tm-page-bg', surf.bg);
-        targetStyle.setProperty('--fs-tm-ink', surf.ink);
-        targetStyle.setProperty('--fs-tm-text', surf.ink_soft);
-        targetStyle.setProperty('--fs-tm-muted', surf.ink_soft);
-        targetStyle.setProperty('--fs-tm-faint', surf.ink_faint);
-        targetStyle.setProperty('--fs-tm-line', surf.line);
-        targetStyle.setProperty('--fs-tm-line-strong', surf.line_strong);
-        if (surf.is_dark) {
-            targetStyle.setProperty('--fs-tm-surface', surf.raised);
-            targetStyle.setProperty('--fs-tm-surface-alt', surf.sunken);
-            targetStyle.setProperty('--fs-tm-surface-sunken', surf.raised);
+    const levels = [];
+    document.querySelectorAll(CONTAINER_SELECTOR).forEach((container) => {
+        let depth = 0;
+        let outer = container.parentElement ? container.parentElement.closest(CONTAINER_SELECTOR) : null;
+        while (outer) {
+            depth++;
+            outer = outer.parentElement ? outer.parentElement.closest(CONTAINER_SELECTOR) : null;
         }
+        (levels[depth] = levels[depth] || []).push(container);
+    });
+
+    levels.forEach((containers) => {
+        const surfaces = containers.map((container) => surface(detectBackgroundColor(container.parentElement)));
+        containers.forEach((container, index) => writeSurface(container, surfaces[index]));
     });
 }

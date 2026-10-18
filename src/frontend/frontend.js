@@ -571,6 +571,16 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
     // Kontrast-Überwachung für Theme-Wechsel (z. B. Dark-Mode-Plugins)
     function installThemeObserver() {
         if (typeof window.MutationObserver === 'undefined') return;
+        // Mehrere Änderungen kurz hintereinander lösen nur einen Lauf im nächsten Frame aus.
+        var pending = false;
+        function scheduleContrast() {
+            if (pending) return;
+            pending = true;
+            window.requestAnimationFrame(function() {
+                pending = false;
+                applyAllContainerContrasts();
+            });
+        }
         var themeObserver = new window.MutationObserver(function(mutations) {
             for (var i = 0; i < mutations.length; i++) {
                 if (
@@ -578,7 +588,7 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
                     mutations[i].attributeName === 'data-theme' ||
                     mutations[i].attributeName === 'style'
                 ) {
-                    applyAllContainerContrasts();
+                    scheduleContrast();
                     break;
                 }
             }
@@ -592,12 +602,18 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
     }
 
     // Sofortige Ausführung bei Skriptstart, falls body bereits existiert (vermeidet FOUC)
+    var contrastAppliedEarly = false;
     if (typeof document !== 'undefined' && document.body) {
         applyAllContainerContrasts();
+        contrastAppliedEarly = true;
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        applyAllContainerContrasts();
+        // Im Footer geladen ist der Lauf beim Skriptstart bereits aktuell; der
+        // load-Lauf fängt spätere Änderungen ab.
+        if (!contrastAppliedEarly) {
+            applyAllContainerContrasts();
+        }
         installThemeObserver();
         equalizeHeaderHeights();
 

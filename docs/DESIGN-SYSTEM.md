@@ -182,6 +182,10 @@ außerhalb einer Karte dieselbe Sprache sprechen. Elemente direkt vor dem Seiten
 berechnen ihren Kontrast automatisch gegen `body.background-color` (bzw. den Hintergrund
 ihres übergeordneten Containers). Das Frontend-Skript (`frontend.js`) misst die
 tatsächliche Hintergrundfarbe zur Laufzeit nach und passt die Tokens dynamisch an.
+Dabei liest `applyAllContainerContrasts()` (`src/shared/contrast.js`) je Verschachtelungstiefe
+erst alle Hintergründe und schreibt danach die Tokens; unveränderte Werte werden nicht neu
+gesetzt, Theme-Wechsel lösen höchstens einen Lauf je Frame aus. So entstehen keine
+erzwungenen Style-Neuberechnungen je Karte.
 Das Frontend-Stylesheet enthält nur noch Rückfallwerte auf `:root` —
 **keine festen Textfarben in Komponenten**.
 
