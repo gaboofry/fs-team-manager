@@ -3,7 +3,7 @@
  * Plugin Name:       Fabriel Team Manager
  * Plugin URI:        https://teammanager.fabrielsoftware.de/
  * Description:       Zentrale Verwaltung von Mannschaften, Zeiträumen, Spielplänen und Tabellen für Widgets von fussball.de.
- * Version:           1.2.4
+ * Version:           1.2.5
  * Requires at least: 6.1
  * Requires PHP:      7.4
  * Author:            Fabriel Software
@@ -20,7 +20,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-define('FS_TM_VERSION', '1.2.4');
+define('FS_TM_VERSION', '1.2.5');
 define('FS_TM_PATH', plugin_dir_path(__FILE__));
 define('FS_TM_URL', plugin_dir_url(__FILE__));
 define('FS_TM_FILE', __FILE__);

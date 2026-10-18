@@ -5,7 +5,7 @@ Tags: fussball, soccer, sports, tables, blocks
 Requires at least: 6.1
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -198,6 +198,10 @@ Die öffentlichen Block-Filter `fs_tm_widget_card_html`, `fs_tm_tables_overview_
 
 == Changelog ==
 
+= 1.2.5 =
+* Geändert: Der optionale Hinweis unter den Karten lautet jetzt einheitlich „Eingebunden durch Fabriel Software Team-Manager“.
+* Verbessert: Die Kartenköpfe der Tabellen-Übersicht werden in einem Durchgang angeglichen; das vermeidet wiederholte Layout-Berechnungen beim Laden und beim Ändern der Fenstergröße.
+
 = 1.2.4 =
 * Behoben: Im Block „Spielplan & Tabelle“ ließ sich im Blockeditor keine Mannschaft auswählen – die Auswahl zeigte nur „Automatisch (anhand Seite)“. Die Editordaten und Übersetzungen wurden an einen falschen Skript-Handle übergeben; der Handle wird jetzt aus dem registrierten Block ermittelt.
 * Behoben: Die Editorübersetzungen des Blocks „Tabellen-Übersicht (Grid)“ wurden aus demselben Grund nicht geladen.
@@ -245,6 +249,9 @@ Die öffentlichen Block-Filter `fs_tm_widget_card_html`, `fs_tm_tables_overview_
 * Erstveröffentlichung.
 
 == Upgrade Notice ==
+
+= 1.2.5 =
+Einheitliche Schreibweise „Team-Manager“ und schnellere Angleichung der Kartenköpfe im Frontend.
 
 = 1.2.4 =
 Stellt die Mannschaftsauswahl im Block „Spielplan & Tabelle“ wieder her. Erfordert jetzt mindestens WordPress 6.1.

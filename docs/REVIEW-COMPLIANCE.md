@@ -105,7 +105,7 @@ Richtlinie 10 verlangt wörtlich: *„All 'Powered By' or credit displays and li
 included in the plugin code must be optional and default to not show on users'
 front-facing websites."*
 
-Der Hinweis „Eingebunden durch Fabriel Software Teammanager" unterhalb jeder
+Der Hinweis „Eingebunden durch Fabriel Software Team-Manager" unterhalb jeder
 Karte ist deshalb ein Opt-in:
 
 * `TeamRepository::attributionEnabled()` liest `fs_tm_show_attribution` mit dem

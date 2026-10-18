@@ -90,7 +90,7 @@ class SettingsPage {
                     </label>
                     <label class="fs-tm-checkbox-pill">
                         <input type="checkbox" name="fs_tm_show_attribution" value="1" <?php checked(get_option('fs_tm_show_attribution', 0), 1); ?>>
-                        <span><?php esc_html_e('Hinweis „Eingebunden durch Fabriel Software Teammanager“ anzeigen', 'fabriel-team-manager'); ?></span>
+                        <span><?php esc_html_e('Hinweis „Eingebunden durch Fabriel Software Team-Manager“ anzeigen', 'fabriel-team-manager'); ?></span>
                         <span class="fs-tm-help-tip" data-tip="<?php esc_attr_e('Blendet unter jeder Karte im Frontend einen Hinweis mit Link auf die Herstellerseite ein. Standardmäßig ausgeschaltet; das Plugin funktioniert ohne diesen Hinweis vollständig.', 'fabriel-team-manager'); ?>">?</span>
                     </label>
                     <input type="submit" name="fs_tm_save_privacy" class="button fs-tm-btn-primary" value="<?php esc_attr_e('Einstellung speichern', 'fabriel-team-manager'); ?>">

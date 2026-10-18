@@ -124,7 +124,7 @@ Gepflegt in `src/frontend/frontend.scss`. Alle Karten werden serverseitig von
 | `fs-tm-card-link` | Mannschaftsname als Link auf die zugeordnete Seite. |
 | `fs-tm-card-title-line` | Ein Zeileneintrag in der Tabellen-Übersicht (mehrere Teams je Liga). |
 | `fs-tm-card-body` | Inhaltsfläche. |
-| `fs-tm-card-attribution` | „Eingebunden durch Fabriel Software Teammanager" unterhalb jeder Karte (wird vom Frontend-Skript idempotent eingefügt — sowohl unter `.fs-tm-table-card` als auch unter `.fs-tm-card` der Add-ons). Der Link zum Widerruf der Widget-Einwilligung erscheint nur unter Karten, die tatsächlich einen externen Inhalt einbetten. |
+| `fs-tm-card-attribution` | „Eingebunden durch Fabriel Software Team-Manager" unterhalb jeder Karte (wird vom Frontend-Skript idempotent eingefügt — sowohl unter `.fs-tm-table-card` als auch unter `.fs-tm-card` der Add-ons). Der Link zum Widerruf der Widget-Einwilligung erscheint nur unter Karten, die tatsächlich einen externen Inhalt einbetten. |
 | `fs-tm-period-select-wrap` / `fs-tm-period-select` | Auswahlfeld der Zeiträume rechts im Kartenkopf. |
 | `fs-tm-period-pane` + `is-active` | Zeitraum-Pane. Inaktive Panes tragen `data-fs-tm-lazy="1"` und halten ihren Inhalt in `<template>`. |
 | `fs-tm-tables-grid` + `fs-tm-cols-1\|2\|3` | Responsives Raster der Tabellen-Übersicht. |

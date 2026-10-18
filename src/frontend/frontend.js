@@ -73,29 +73,37 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
         return !!document.querySelector('.fs-tm-widget-slot[data-widget-id]');
     }
 
+    // Alle Raster in getrennten Schreib-, Lese- und Schreibphasen, damit nur ein Layout-Durchlauf entsteht.
     function equalizeHeaderHeights() {
-        var grids = document.querySelectorAll('.fs-tm-tables-grid');
-        grids.forEach(function(grid) {
+        var groups = [];
+        document.querySelectorAll('.fs-tm-tables-grid').forEach(function(grid) {
             var headers = grid.querySelectorAll('.fs-tm-card-header');
-            if (!headers.length) return;
+            if (headers.length) groups.push(headers);
+        });
+        if (!groups.length) return;
 
+        groups.forEach(function(headers) {
             headers.forEach(function(h) {
                 h.style.minHeight = '';
             });
+        });
 
-            if (window.innerWidth <= 768) return;
+        if (window.innerWidth <= 768) return;
 
+        var heights = groups.map(function(headers) {
             var maxH = 0;
             headers.forEach(function(h) {
                 var hH = h.offsetHeight;
                 if (hH > maxH) maxH = hH;
             });
+            return maxH;
+        });
 
-            if (maxH > 0) {
-                headers.forEach(function(h) {
-                    h.style.minHeight = maxH + 'px';
-                });
-            }
+        groups.forEach(function(headers, index) {
+            if (heights[index] <= 0) return;
+            headers.forEach(function(h) {
+                h.style.minHeight = heights[index] + 'px';
+            });
         });
     }
 
@@ -451,7 +459,7 @@ import { applyAllContainerContrasts, applyPageContrast, detectBackgroundColor } 
 
             el.appendChild(document.createTextNode('Eingebunden durch '));
             el.appendChild(link);
-            el.appendChild(document.createTextNode(' Teammanager'));
+            el.appendChild(document.createTextNode(' Team-Manager'));
         }
 
         // Bei aktiver Zwei-Klick-Lösung: Link zum Widerruf der Einwilligung
